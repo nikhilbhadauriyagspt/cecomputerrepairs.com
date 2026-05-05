@@ -1,181 +1,225 @@
-import React, { useState } from 'react';
-import { Mail, MessageSquare, Send, ChevronRight, MapPin, Phone, Clock, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
+import React, { useState } from "react";
+import {
+  Mail,
+  Send,
+  ChevronRight,
+  MapPin,
+  CheckCircle2,
+  ShieldCheck,
+  Loader2,
+  AlertCircle
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
+import { SITE_DETAILS, CONTACT_API_URL } from "../config";
 
 const Contact = () => {
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    device: "",
+    message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState({ loading: false, success: false, error: null });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log("Form submitted:", formState);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
-    setFormState({ name: '', email: '', subject: '', message: '' });
+    setStatus({ loading: true, success: false, error: null });
+
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formState,
+          subject: `Repair Service Inquiry: ${formState.device}`,
+          to_email: SITE_DETAILS.email
+        }),
+      });
+
+      if (response.ok) {
+        setStatus({ loading: false, success: true, error: null });
+        setFormState({ name: "", email: "", device: "", message: "" });
+      } else {
+        throw new Error('Failed to send request. Please try again later.');
+      }
+    } catch (err) {
+      setStatus({ loading: false, success: false, error: err.message });
+    }
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email Us",
-      value: "info@youmailengine.com",
-      desc: "Response within 24 hours",
-      color: "blue"
-    },
-   
-  ];
-
   return (
-    <div className="bg-zinc-50 min-h-screen">
-      <SEO 
-        title="Contact Us" 
-        description="Get in touch with You Mail Engine for email guide suggestions, feedback, or any questions you have about our platform."
+    <main className="w-full bg-white font-['Poppins']">
+      <SEO
+        title="Contact & Book Computer Repair Service | C.E. Computer Repair"
+        description="Contact us to book computer repair services including laptop repair, screen replacement, and diagnostics. Easy booking with reliable service support."
       />
-      {/* Header */}
-      <section className="bg-white pt-32 pb-20 border-b border-zinc-100 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="flex items-center gap-2 text-[13px] font-bold text-blue-600 uppercase tracking-widest mb-6">
-            <Link to="/" className="hover:text-blue-800 transition-colors">Home</Link>
+
+      <section className="w-full bg-[#062238] py-20 lg:py-28">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <div className="flex items-center gap-2 text-[13px] font-medium text-[#1E86C8] uppercase tracking-widest mb-6">
+            <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight className="w-4 h-4" />
-            <span>Contact Us</span>
+            <span>Book Service</span>
           </div>
-          <h1 className="text-5xl lg:text-5xl font-serif text-zinc-900 leading-[1.1] mb-6">
-            Let's start a <span className="text-blue-700 italic">conversation.</span>
+
+          <h1 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-medium leading-tight mb-6">
+            Contact & Book Computer Repair Service
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed max-w-2xl">
-            Have a question, feedback, or a topic suggestion? We're here to listen and help you on your digital journey.
+
+          <p className="text-white/75 text-[17px] leading-[1.8] max-w-[760px]">
+            Need help with your device? Contact us to book computer repair services including laptop repair, screen replacement, and diagnostics.
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-20 px-6">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+      <section className="w-full bg-[#F7F7F7] py-16 lg:py-24">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[520px_1fr] gap-10 lg:gap-16">
             
-            {/* Left Side: Info */}
-            <div className="lg:col-span-5 space-y-12">
-              <div>
-                <h2 className="text-3xl font-bold text-zinc-900 mb-8">Get in touch</h2>
-                <div className="space-y-6">
-                  {contactInfo.map((item, index) => (
-                    <div key={index} className="flex gap-6 p-8 bg-white rounded-[2.5rem] border border-zinc-100 shadow-sm transition-hover hover:shadow-md">
-                      <div className={`shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center ${item.color === 'blue' ? 'bg-blue-50 text-blue-600' : 'bg-emerald-50 text-emerald-600'}`}>
-                        {item.icon}
-                      </div>
-                      <div>
-                        <h4 className="text-[13px] font-bold text-zinc-400 uppercase tracking-wider mb-1">{item.title}</h4>
-                        <p className="text-xl font-bold text-zinc-900 mb-1">{item.value}</p>
-                        <p className="text-sm text-zinc-500">{item.desc}</p>
-                      </div>
+            <div className="space-y-6">
+              <div className="bg-white border border-[#D7E9F7] p-7">
+                <MapPin className="w-7 h-7 text-[#1E86C8] mb-5" />
+                <h3 className="text-[#082F57] text-[22px] font-medium mb-3">
+                  Our Location
+                </h3>
+                <p className="text-[#6B7280] text-[15px] leading-[1.8]">
+                  {SITE_DETAILS.address}
+                </p>
+              </div>
+
+              <div className="bg-white border border-[#D7E9F7] p-7">
+                <Mail className="w-7 h-7 text-[#1E86C8] mb-5" />
+                <h3 className="text-[#082F57] text-[22px] font-medium mb-3">
+                  Email Us
+                </h3>
+                <a
+                  href={`mailto:${SITE_DETAILS.email}`}
+                  className="text-[#1E86C8] text-[15px] font-medium break-all"
+                >
+                  {SITE_DETAILS.email}
+                </a>
+              </div>
+
+              <div className="bg-[#062238] p-7">
+                <h3 className="text-white text-[24px] font-medium mb-6">
+                  Service Commitment
+                </h3>
+
+                <div className="space-y-4">
+                  {[
+                    "Free initial diagnosis available",
+                    "No unnecessary repairs recommended",
+                    "Service based on actual device condition",
+                    "Focused on necessary repairs only",
+                  ].map((note, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <ShieldCheck className="w-5 h-5 text-[#1E86C8] shrink-0 mt-0.5" />
+                      <p className="text-white/75 text-[15px] leading-[1.6]">
+                        {note}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
-
-              <div className="bg-blue-700 rounded-[3rem] p-10 text-white relative overflow-hidden">
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 translate-y-1/2" />
-                <h3 className="text-2xl font-bold mb-4">Want to learn more?</h3>
-                <p className="text-blue-50/80 mb-8 leading-relaxed">
-                  Join our community and get the latest email guides and security tips delivered to your inbox.
-                </p>
-                <Link to="/guides" className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-2xl font-bold transition-all hover:bg-blue-50 active:scale-95">
-                  Browse All Guides
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-              </div>
             </div>
 
-            {/* Right Side: Form */}
-            <div className="lg:col-span-7">
-              <div className="bg-white rounded-[3rem] border border-zinc-100 p-8 md:p-14 shadow-xl shadow-zinc-200/50">
-                {isSubmitted ? (
-                  <div className="py-20 text-center">
-                    <div className="w-20 h-20 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8">
-                      <CheckCircle2 className="w-10 h-10" />
-                    </div>
-                    <h3 className="text-3xl font-bold text-zinc-900 mb-4">Message Sent!</h3>
-                    <p className="text-zinc-500 text-lg max-w-md mx-auto">
-                      Thank you for reaching out. We've received your message and will get back to you within 24 hours.
-                    </p>
-                    <button 
-                      onClick={() => setIsSubmitted(false)}
-                      className="mt-10 text-blue-600 font-bold hover:underline"
-                    >
-                      Send another message
-                    </button>
+            <div className="bg-white border border-[#D7E9F7] p-7 md:p-10">
+              <h2 className="text-[#082F57] text-[28px] md:text-[36px] font-medium mb-8">
+                Request a Service
+              </h2>
+
+              {status.success ? (
+                <div className="py-16 text-center">
+                  <CheckCircle2 className="w-16 h-16 text-[#1E86C8] mx-auto mb-6" />
+                  <h3 className="text-[#082F57] text-[28px] font-medium mb-4">
+                    Request Received!
+                  </h3>
+                  <p className="text-[#6B7280] text-[16px] leading-[1.8] max-w-[520px] mx-auto">
+                    Thank you for reaching out. We've received your service request and will get back to you shortly to guide you through the next steps.
+                  </p>
+                  <button 
+                    onClick={() => setStatus({ ...status, success: false })}
+                    className="mt-8 bg-[#1E86C8] hover:bg-[#0A4F86] text-white px-8 py-4 font-medium uppercase tracking-[0.08em] transition"
+                  >
+                    Send Another Request
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <input
+                      required
+                      type="text"
+                      placeholder="Your Name"
+                      className="w-full bg-[#F4F8FC] border border-[#D7E9F7] px-5 py-4 outline-none"
+                      value={formState.name}
+                      onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                    />
+
+                    <input
+                      required
+                      type="email"
+                      placeholder="Email Address"
+                      className="w-full bg-[#F4F8FC] border border-[#D7E9F7] px-5 py-4 outline-none"
+                      value={formState.email}
+                      onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                    />
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="text-sm font-bold text-zinc-700 ml-1">Your Name</label>
-                        <input 
-                          required
-                          type="text" 
-                          placeholder="John Doe"
-                          className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl p-4 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
-                          value={formState.name}
-                          onChange={(e) => setFormState({...formState, name: e.target.value})}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-bold text-zinc-700 ml-1">Email Address</label>
-                        <input 
-                          required
-                          type="email" 
-                          placeholder="john@example.com"
-                          className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl p-4 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
-                          value={formState.email}
-                          onChange={(e) => setFormState({...formState, email: e.target.value})}
-                        />
-                      </div>
+
+                  <input
+                    required
+                    type="text"
+                    placeholder="Device Type (Laptop / Desktop)"
+                    className="w-full bg-[#F4F8FC] border border-[#D7E9F7] px-5 py-4 outline-none"
+                    value={formState.device}
+                    onChange={(e) => setFormState({ ...formState, device: e.target.value })}
+                  />
+
+                  <textarea
+                    required
+                    rows="6"
+                    placeholder="Issue Description"
+                    className="w-full bg-[#F4F8FC] border border-[#D7E9F7] px-5 py-4 outline-none resize-none"
+                    value={formState.message}
+                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  />
+
+                  {status.error && (
+                    <div className="flex items-center gap-3 text-red-600 text-sm font-medium bg-red-50 p-4 rounded-xl border border-red-100">
+                      <AlertCircle className="w-5 h-5" />
+                      {status.error}
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-zinc-700 ml-1">Subject</label>
-                      <input 
-                        required
-                        type="text" 
-                        placeholder="How can we help?"
-                        className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl p-4 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
-                        value={formState.subject}
-                        onChange={(e) => setFormState({...formState, subject: e.target.value})}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-zinc-700 ml-1">Message</label>
-                      <textarea 
-                        required
-                        rows="6"
-                        placeholder="Write your message here..."
-                        className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl p-4 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none"
-                        value={formState.message}
-                        onChange={(e) => setFormState({...formState, message: e.target.value})}
-                      ></textarea>
-                    </div>
-                    <button 
-                      type="submit"
-                      className="w-full bg-zinc-900 text-white py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-zinc-800 transition-all active:scale-[0.98] shadow-xl shadow-zinc-200"
-                    >
-                      <Send className="w-5 h-5" />
-                      Send Message
-                    </button>
-                  </form>
-                )}
-              </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status.loading}
+                    className="w-full bg-[#1E86C8] hover:bg-[#0A4F86] text-white py-4 font-medium uppercase tracking-[0.08em] flex items-center justify-center gap-3 transition disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {status.loading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Book an Appointment
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
+
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

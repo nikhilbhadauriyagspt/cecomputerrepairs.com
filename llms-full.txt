@@ -1,46 +1,49 @@
-# You Mail Engine - Full Documentation
+# C.E. Computer Repair - Full Documentation
 
-You Mail Engine is a modern, responsive React-based web application built with Vite and Tailwind CSS. It serves as an educational hub for email management and digital literacy.
+C.E. Computer Repair is a modern, responsive React-based web application built with Vite and Tailwind CSS. It serves as a professional service hub for computer and laptop hardware repairs.
 
 ## Project Architecture
 
 ### Frontend
 - **Framework**: React 19.
 - **Build Tool**: Vite.
-- **Styling**: Tailwind CSS 4.
+- **Styling**: Tailwind CSS 4 (Customized with branding colors like #062238 and #1E86C8).
+- **Typography**: Poppins (Imported via Google Fonts).
 - **Routing**: React Router 7.
-- **Icons**: Lucide React for consistent UI iconography.
-- **SEO Management**: React Helmet Async for dynamic meta tags and structured data.
+- **Icons**: Lucide React.
+- **SEO Management**: Centralized SEO component for managing canonicals, meta tags, and structured data (Schema.org).
 
 ### Main Components
 - **Header**: Responsive navigation with scroll detection and smooth hash-link scrolling.
-- **Hero**: Visually impactful landing section with a primary CTA.
-- **AboutSection**: Explains the mission and core values of the platform.
-- **Guides**: A collection of educational articles (data-driven via `guidesData.jsx`).
-- **FAQSection**: Categorized, searchable, and interactive accordion for common queries.
-- **SecurityTips**: Actionable advice for email safety.
-- **SEO**: Centralized SEO component for managing canonicals, meta tags, and Open Graph data.
+- **Hero**: Visually impactful landing section with a focus on hardware repair reliability.
+- **AboutSection**: Explains the mission of practical and reliable repair solutions.
+- **ServicesSection**: Showcases core repair offerings (Screens, Storage, Motherboards, etc.).
+- **HowItWorks**: A 6-step structured walkthrough of the repair process.
+- **SecurityTips (Why Choose Us)**: Highlights the benefits of choosing C.E. Computer Repair.
+- **FAQSection**: Categorized accordion for common service queries.
+* **CTASection**: High-conversion section for custom inquiries.
+- **SEO**: Centralized component for managing metadata, canonicals, and structured data.
 
 ### Pages
-- **Home**: Main landing page showcasing all sections.
-- **About**: Detailed "About Us" page.
-- **Guides**: Listing page for all email tutorials.
-- **GuideDetail**: Dynamic page for individual guide content.
-- **FAQ**: Comprehensive question-and-answer page.
-- **Steps**: Walkthroughs for common email tasks.
-- **Contact**: User inquiry form.
+- **Home**: Main landing page showcasing the full service range and repair process.
+- **About Us**: Detailed background on the company's approach and focus areas.
+- **Services**: Comprehensive listing of all hardware repair and diagnostic services.
+- **How It Works**: Detailed walkthrough from booking to device handover.
+- **FAQ**: Common questions and answers about service time and repairs.
+- **Contact & Book Service**: Integrated form for service requests and appointment booking.
 
 ### Policies
-- **Privacy Policy**
-- **Terms of Service**
-- **Cookie Policy**
-- **Refund Policy**
-- **Disclaimer**
+- **Privacy Policy**: Data handling for service requests.
+- **Terms & Conditions**: Service terms and usage guidelines.
+- **Cookie Policy**: Explains the use of cookies for browsing experience.
+- **Refund & Cancellation Policy**: Terms for service satisfaction and cancellations.
+- **Disclaimer**: Service limitations and device risk disclosure.
 
 ## Key Workflows
 - **Navigation**: Uses `react-router-dom` for SPA navigation and a custom `ScrollToHash` hook for handling internal document links.
-- **SEO Optimization**: Implements automatic canonical URLs, semantic HTML (article tags), and dynamic sitemaps.
-- **Asset Management**: Uses AVIF format for optimized image loading and preloads LCP (Largest Contentful Paint) images in `index.html`.
+- **SEO Optimization**: Implements automatic canonical URLs, semantic HTML (article tags), dynamic sitemaps, and optimized robots.txt.
+- **Branding & UI**: Modern "Bento-style" elements, Poppins typography, and a dark/light blue professional color palette.
+- **Asset Management**: Uses AVIF/PNG formats for optimized loading; preloads LCP images in `index.html`.
 
 ## Development Scripts
 - `npm run dev`: Starts the development server.

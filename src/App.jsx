@@ -44,16 +44,16 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/guides" element={<Guides />} />
-            <Route path="/steps" element={<Steps />} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/services" element={<Guides />} />
+            <Route path="/how-it-works" element={<Steps />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/guides/:id" element={<GuideDetail />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/services/:id" element={<GuideDetail />} />
+            <Route path="/contact-book-service" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/terms-and-conditions" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
-            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/refund-cancellation-policy" element={<RefundPolicy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             <Route path="*" element={<Home />} />
           </Routes>

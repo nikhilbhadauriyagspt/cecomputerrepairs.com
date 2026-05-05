@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MessageSquare, Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -16,70 +16,52 @@ const Header = () => {
 
   const handleNavClick = (path) => {
     setIsMenuOpen(false);
-
-    if (path.startsWith("/#")) {
-      const targetId = path.replace("/#", "");
-      if (location.pathname === "/") {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        navigate("/", { state: { scrollTo: targetId } });
-      }
-    } else {
-      navigate(path);
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Guides", path: "/guides" },
-    { name: "Steps", path: "/steps" },
-    { name: "FAQ", path: "/faq" },
+    { name: "Services", path: "/services" },
+    { name: "About Us", path: "/about-us" },
+    { name: "How It Works", path: "/how-it-works" },
   ];
 
   const isActive = (path) => {
     if (path === "/") return location.pathname === "/";
-    if (path.startsWith("/#")) return false;
     return location.pathname === path;
   };
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md transition-all duration-300 border-b ${
+      className={`sticky top-0 z-50 w-full bg-white transition-all duration-300 border-b ${
         isScrolled
-          ? "border-zinc-200 shadow-[0_8px_30px_rgba(15,23,42,0.06)]"
-          : "border-zinc-100"
+          ? "border-[#D7E9F7] shadow-[0_8px_28px_rgba(10,79,134,0.10)]"
+          : "border-[#E6F1FA]"
       }`}
     >
-      <div className="max-w-[1800px] mx-auto px-5 sm:px-6 lg:px-12">
-        <div className="flex items-center justify-between h-[76px]">
-          
-          {/* Logo */}
+      <div className="max-w-[1900px] mx-auto px-6 lg:px-10">
+        <div className="h-[92px] flex items-center justify-between">
           <button
             onClick={() => handleNavClick("/")}
             className="flex items-center shrink-0"
           >
             <img
-              src="/logo.avif"
-              alt="You Mail Engine logo"
-              width="200"
-              height="70"
-              fetchPriority="high"
-              className="h-17 w-auto object-contain"
+              src="/Logo.png"
+              alt="CE Computer Repairs"
+              className="h-[62px] w-auto object-contain"
             />
           </button>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1 bg-zinc-50 border border-zinc-100 rounded-full px-2 py-2">
+          <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.path)}
-                className={`relative px-4 py-2 rounded-full text-[14px] font-semibold transition-all duration-300 ${
+                className={`text-[14px] font-medium uppercase tracking-[0.08em] transition ${
                   isActive(link.path)
-                    ? "bg-white text-blue-700 shadow-sm"
-                    : "text-zinc-600 hover:text-blue-700 hover:bg-white"
+                    ? "text-[#0A4F86]"
+                    : "text-[#111827] hover:text-[#1E86C8]"
                 }`}
               >
                 {link.name}
@@ -87,33 +69,27 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Contact Button */}
-          <div className="hidden lg:flex items-center justify-end">
-            <button
-              onClick={() => handleNavClick("/contact")}
-              className="group inline-flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-full text-[14px] font-bold transition-all duration-300 hover:bg-blue-800 hover:shadow-lg hover:shadow-blue-200 active:scale-95"
-            >
-              <MessageSquare className="w-4 h-4" />
-              Contact Us
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+          <button
+            onClick={() => handleNavClick("/contact-book-service")}
+            className="hidden lg:inline-flex items-center gap-2 bg-[#0A4F86] text-white px-8 py-4 rounded-[9px] text-[14px] font-medium uppercase tracking-[0.04em] hover:bg-[#1E86C8] transition"
+          >
+            Book a Service
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            className="lg:hidden w-11 h-11 rounded-full bg-zinc-50 border border-zinc-100 flex items-center justify-center text-zinc-700"
+            className="lg:hidden w-11 h-11 rounded-lg bg-[#0A4F86] text-white flex items-center justify-center"
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden bg-white border-t border-zinc-100 transition-all duration-300 ${
-          isMenuOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden overflow-hidden bg-white border-t border-[#E6F1FA] transition-all duration-300 ${
+          isMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-5 py-5 space-y-2">
@@ -121,23 +97,22 @@ const Header = () => {
             <button
               key={link.name}
               onClick={() => handleNavClick(link.path)}
-              className={`w-full flex items-center justify-between px-4 py-4 rounded-2xl text-left font-semibold transition ${
+              className={`w-full text-left px-4 py-4 rounded-xl font-bold uppercase text-[14px] ${
                 isActive(link.path)
-                  ? "bg-blue-50 text-blue-700"
-                  : "text-zinc-700 hover:bg-zinc-50"
+                  ? "bg-[#EDF6FC] text-[#0A4F86]"
+                  : "text-zinc-800 hover:bg-[#F4F8FC]"
               }`}
             >
               {link.name}
-              <ArrowRight className="w-4 h-4 text-zinc-400" />
             </button>
           ))}
 
           <button
-            onClick={() => handleNavClick("/contact")}
-            className="mt-4 w-full flex items-center justify-center gap-2 bg-blue-700 text-white py-4 rounded-2xl font-bold"
+            onClick={() => handleNavClick("/contact-book-service")}
+            className="w-full mt-3 flex items-center justify-center gap-2 bg-[#0A4F86] text-white px-6 py-4 rounded-xl font-medium uppercase"
           >
-            <MessageSquare className="w-5 h-5" />
-            Contact Us
+            Book a Service
+            <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
       </div>

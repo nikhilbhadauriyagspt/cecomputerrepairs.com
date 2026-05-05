@@ -5,7 +5,10 @@ import AboutSection from '../components/AboutSection';
 import ServicesSection from '../components/ServicesSection';
 import HowItWorks from '../components/HowItWorks';
 import FAQSection from '../components/FAQSection';
+import CTASection from '../components/CTASection';
 import SEO from '../components/SEO';
+
+import SecurityTips from '../components/SecurityTips';
 
 const Home = () => {
   const location = useLocation();
@@ -26,14 +29,16 @@ const Home = () => {
   return (
     <>
       <SEO 
-        title="Home" 
-        description="You Mail Engine provides simple, jargon-free email guides to help you master your inbox, secure your privacy, and understand digital communication."
+        title="Computer Repair & Laptop Services | C.E. Computer Repair" 
+        description="Professional computer repair and laptop services including screen replacement, hard drive repair, and diagnostics. Reliable service you can trust."
       />
       <div id="home"><Hero /></div>
       <div id="about"><AboutSection /></div>
       <div id="services"><ServicesSection /></div>
+      <div id="why-choose-us"><SecurityTips /></div>
       <div id="how-it-works"><HowItWorks /></div>
       <div id="faq"><FAQSection /></div>
+      <div id="cta"><CTASection /></div>
     </>
   );
 };

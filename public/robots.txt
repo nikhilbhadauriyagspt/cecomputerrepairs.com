@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://youmailengine.com/sitemap.xml
-
-
+Sitemap: https://cecomputerrepairs.com/sitemap.xml

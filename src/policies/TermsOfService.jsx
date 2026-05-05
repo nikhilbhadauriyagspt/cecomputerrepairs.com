@@ -1,225 +1,305 @@
+import React from "react";
 import SEO from "../components/SEO";
 
-const TermsOfService = () => {
-  return (
-    <section className="py-24 bg-white font-sans text-zinc-900 min-h-screen">
-      <SEO 
-        title="Terms of Service" 
-        description="Read the terms and conditions for using You Mail Engine. Understand your responsibilities and our commitments as an educational platform."
-      />
-      <div className="max-w-[1000px] mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-blue-800 uppercase tracking-tight">Terms of Service</h1>
-        <p className="text-zinc-600 mb-12 border-b border-zinc-100 pb-8 uppercase font-bold tracking-widest">Last updated April 28, 2026</p>
+const EmailLink = () => (
+  <a
+    href="mailto:contact@cecomputerrepairs.com"
+    className="text-[#1E86C8] hover:underline"
+  >
+    contact@cecomputerrepairs.com
+  </a>
+);
 
-        <div className="prose prose-zinc max-w-none text-[16px] leading-relaxed text-zinc-700 space-y-10">
-          <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-zinc-900 uppercase">AGREEMENT TO OUR LEGAL TERMS</h2>
-            <p>We are <strong>You Mail Engine</strong> ("Company," "we," "us," or "our"),</p>
+const TermsOfService = () => {
+  const sections = [
+    {
+      title: "1. OUR SERVICES",
+      body: [
+        "The information provided when using the Services is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation. Accordingly, those persons who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws.",
+        "The Services are not tailored to comply with industry-specific regulations such as HIPAA, FISMA, or GLBA, so if your interactions would be subjected to such laws, you may not use the Services.",
+      ],
+    },
+    {
+      title: "2. INTELLECTUAL PROPERTY RIGHTS",
+      body: [
+        "We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, text, photographs, graphics, trademarks, service marks, and logos contained therein.",
+        "Our Content and Marks are protected by copyright and trademark laws and are provided in or through the Services \"AS IS\" for your personal, non-commercial use or internal business purpose only.",
+        "Subject to your compliance with these Legal Terms, we grant you a non-exclusive, non-transferable, revocable license to access the Services and download or print a copy of any portion of the Content to which you have properly gained access.",
+        "No part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose without our express prior written permission.",
+        <>
+          If you wish to make any use of the Services, Content, or Marks other
+          than as set out in these Legal Terms, please address your request to{" "}
+          <EmailLink />.
+        </>,
+        "Any breach of these Intellectual Property Rights will constitute a material breach of our Legal Terms and your right to use our Services will terminate immediately.",
+      ],
+    },
+    {
+      title: "3. USER REPRESENTATIONS",
+      body: [
+        "By using the Services, you represent and warrant that you have the legal capacity and agree to comply with these Legal Terms; you are not a minor in your jurisdiction; you will not access the Services through automated or non-human means; you will not use the Services for any illegal or unauthorized purpose; and your use of the Services will not violate any applicable law or regulation.",
+        "If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your access and refuse any current or future use of the Services.",
+      ],
+    },
+    {
+      title: "4. PROHIBITED ACTIVITIES",
+      body: [
+        "You may not access or use the Services for any purpose other than that for which we make the Services available.",
+        "As a user of the Services, you agree not to systematically retrieve data or content from the Services without written permission; trick, defraud, or mislead us or other users; interfere with security-related features; use information obtained from the Services to harass or harm another person; submit false reports; use the Services inconsistently with laws; upload viruses or harmful material; engage in automated use; impersonate another person; interfere with the Services; attempt to bypass restrictions; copy or adapt software; use scraping tools; make unauthorized use of the Services; use the Services to compete with us; or sell or transfer your profile.",
+      ],
+    },
+    {
+      title: "5. USER GENERATED CONTRIBUTIONS",
+      body: [
+        "The Services does not offer users to submit or post content. We may provide you with the opportunity to create, submit, post, display, transmit, publish, distribute, or broadcast content and materials to us or on the Services.",
+        "When you create or make available any Contributions, you represent and warrant that your Contributions do not infringe third-party rights; are not false, inaccurate, or misleading; are not unauthorized advertising or spam; are not obscene, harassing, abusive, discriminatory, threatening, or otherwise objectionable; do not violate privacy rights; do not violate laws protecting minors; and do not otherwise violate these Legal Terms.",
+        "Any use of the Services in violation of the foregoing may result in termination or suspension of your rights to use the Services.",
+      ],
+    },
+    {
+      title: "6. CONTRIBUTION LICENSE",
+      body: [
+        "You and Services agree that we may access, store, process, and use any information and personal data that you provide following the terms of the Privacy Policy and your choices.",
+        "By submitting suggestions or feedback regarding the Services, you agree that we can use and share such feedback for any purpose without compensation to you.",
+        "We do not assert ownership over your Contributions. You retain full ownership of your Contributions and any intellectual property rights associated with them. You are solely responsible for your Contributions.",
+      ],
+    },
+    {
+      title: "7. SERVICES MANAGEMENT",
+      body: [
+        "We reserve the right, but not the obligation, to monitor the Services for violations of these Legal Terms; take appropriate legal action against anyone who violates the law or these Legal Terms; refuse, restrict access to, limit availability of, or disable Contributions; remove excessive or burdensome files and content; and otherwise manage the Services to protect our rights and property.",
+      ],
+    },
+    {
+      title: "8. PRIVACY POLICY",
+      body: [
+        "We care about data privacy and security. Please review our Privacy Policy: https://cecomputerrepairs.com/privacy-policy.",
+        "By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms.",
+        "The Services are hosted in the United States. If you access the Services from another region, you consent to have your data transferred to and processed in the United States.",
+      ],
+    },
+    {
+      title: "9. TERM AND TERMINATION",
+      body: [
+        "These Legal Terms shall remain in full force and effect while you use the Services.",
+        "WITHOUT LIMITING ANY OTHER PROVISION OF THESE LEGAL TERMS, WE RESERVE THE RIGHT, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, TO DENY ACCESS TO AND USE OF THE SERVICES TO ANY PERSON FOR ANY REASON OR FOR NO REASON.",
+        "If we terminate or suspend your access for any reason, you are prohibited from registering or creating a new account under your name, a fake name, borrowed name, or the name of any third party.",
+      ],
+    },
+    {
+      title: "10. MODIFICATIONS AND INTERRUPTIONS",
+      body: [
+        "We reserve the right to change, modify, or remove the contents of the Services at any time or for any reason at our sole discretion without notice.",
+        "We cannot guarantee the Services will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance, resulting in interruptions, delays, or errors.",
+        "You agree that we have no liability for any loss, damage, or inconvenience caused by your inability to access or use the Services during any downtime or discontinuance.",
+      ],
+    },
+    {
+      title: "11. GOVERNING LAW",
+      body: [
+        "These Legal Terms and your use of the Services are governed by and construed in accordance with the laws of the State of Washington applicable to agreements made and to be entirely performed within the State of Washington, without regard to conflict of law principles.",
+      ],
+    },
+    {
+      title: "12. DISPUTE RESOLUTION",
+      body: [
+        "Any legal action brought by either you or us shall be commenced or prosecuted in the state and federal courts located in Washington, and the parties consent to venue and jurisdiction in such courts.",
+        "Application of the United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transaction Act are excluded from these Legal Terms.",
+      ],
+    },
+    {
+      title: "13. CORRECTIONS",
+      body: [
+        "There may be information on the Services that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and other information.",
+        "We reserve the right to correct any errors, inaccuracies, or omissions and to change or update information on the Services at any time, without prior notice.",
+      ],
+    },
+    {
+      title: "14. DISCLAIMER",
+      body: [
+        "THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK.",
+        "TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.",
+        "WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SERVICES' CONTENT OR THE CONTENT OF ANY WEBSITES LINKED TO THE SERVICES.",
+        "WE WILL ASSUME NO LIABILITY OR RESPONSIBILITY FOR ERRORS, MISTAKES, INACCURACIES, PERSONAL INJURY, PROPERTY DAMAGE, UNAUTHORIZED ACCESS, INTERRUPTION, BUGS, VIRUSES, OR LOSS OR DAMAGE ARISING FROM USE OF CONTENT MADE AVAILABLE VIA THE SERVICES.",
+        "WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES.",
+      ],
+    },
+    {
+      title: "15. LIMITATIONS OF LIABILITY",
+      body: [
+        "IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES.",
+        "OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER WILL AT ALL TIMES BE LIMITED TO THE AMOUNT PAID, IF ANY, BY YOU TO US DURING THE SIX (6) MONTH PERIOD PRIOR TO ANY CAUSE OF ACTION ARISING.",
+        "CERTAIN LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR CERTAIN DAMAGES, SO SOME LIMITATIONS MAY NOT APPLY TO YOU.",
+      ],
+    },
+    {
+      title: "16. INDEMNIFICATION",
+      body: [
+        "You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand arising out of your use of the Services, breach of these Legal Terms, breach of representations and warranties, violation of third-party rights, or harmful act toward another user.",
+        "We reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us.",
+      ],
+    },
+    {
+      title: "17. USER DATA",
+      body: [
+        "We will maintain certain data that you transmit to the Services for the purpose of managing the performance of the Services, as well as data relating to your use of the Services.",
+        "Although we perform routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Services.",
+        "You agree that we shall have no liability to you for any loss or corruption of such data.",
+      ],
+    },
+    {
+      title: "18. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES",
+      body: [
+        "Visiting the Services, sending us emails, and completing online forms constitute electronic communications.",
+        "You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide electronically satisfy any legal requirement that such communication be in writing.",
+        "YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SERVICES.",
+      ],
+    },
+    {
+      title: "19. MISCELLANEOUS",
+      body: [
+        "These Legal Terms and any policies or operating rules posted by us constitute the entire agreement and understanding between you and us.",
+        "Our failure to exercise or enforce any right or provision shall not operate as a waiver of such right or provision.",
+        "These Legal Terms operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time.",
+        "If any provision is determined to be unlawful, void, or unenforceable, that provision is deemed severable and does not affect the validity of remaining provisions.",
+        "There is no joint venture, partnership, employment, or agency relationship created between you and us as a result of these Legal Terms.",
+      ],
+    },
+    {
+      title: "20. CONTACT US",
+      body: [
+        "In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:",
+        "C.E. Computer Repair",
+        "1818 E Yesler Wy Suite 101, Seattle, WA 98122, United States",
+        "United States",
+        <EmailLink />,
+      ],
+    },
+  ];
+
+  return (
+    <main className="w-full bg-white font-['Poppins']">
+      <SEO
+        title="Terms & Conditions | C.E. Computer Repair"
+        description="Review our terms and conditions for computer repair services including service terms, responsibilities, and usage guidelines."
+      />
+
+      <section className="w-full bg-[#062238] py-20 lg:py-28">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.24em] mb-5">
+            Legal Agreement
+          </p>
+          <h1 className="text-white text-[36px] md:text-[52px] lg:text-[64px] font-medium leading-tight">
+            Terms & Conditions
+          </h1>
+        </div>
+      </section>
+
+      <section className="py-14 lg:py-20 bg-white">
+        <div className="max-w-[1100px] mx-auto px-6 text-[#374151] text-[15px] leading-[1.9] space-y-10">
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Agreement to our legal terms
+            </h2>
+
             <p>
-              We operate the website <a href="https://youmailengine.com/" className="text-blue-800 underline">https://youmailengine.com/</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+              We are C.E. Computer Repair ("Company," "we," "us," "our"), a
+              company operating in Seattle, United States at 1818 E Yesler Wy
+              Suite 101, Seattle, WA 98122, United States.
             </p>
+
             <p>
-              You Mail Engine is an educational platform dedicated to providing comprehensive guides and tutorials for email management. We aim to empower users with the knowledge needed to navigate digital communication effectively and securely.
+              We operate the website https://cecomputerrepairs.com/ (the
+              "Site"), as well as any other related products and services that
+              refer or link to these legal terms (the "Legal Terms")
+              (collectively, the "Services").
             </p>
-            <p>You can contact us by email at <span className="text-blue-800 font-medium">info@youmailengine.com</span></p>
+
             <p>
-              These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and You Mail Engine Team, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong>IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
+              C.E. Computer Repair is focused on computer repair and laptop
+              repair services with an emphasis on hardware diagnostics,
+              practical repair solutions, and clear service communication.
             </p>
+
             <p>
-              Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Legal Terms at any time and for any reason. We will alert you about any changes by updating the "Last updated" date of these Legal Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such revised Legal Terms are posted.
+              You can contact us by email at <EmailLink />, or by mail to 1818 E
+              Yesler Wy Suite 101, Seattle, WA 98122, United States.
             </p>
+
             <p>
-              The Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Services.
+              These Legal Terms constitute a legally binding agreement made
+              between you, whether personally or on behalf of an entity ("you"),
+              and C.E. Computer Repair, concerning your access to and use of the
+              Services. You agree that by accessing the Services, you have read,
+              understood, and agreed to be bound by all of these Legal Terms. IF
+              YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE
+              EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST
+              DISCONTINUE USE IMMEDIATELY.
             </p>
+
+            <p>
+              Supplemental terms and conditions or documents that may be posted
+              on the Services from time to time are hereby expressly
+              incorporated herein by reference. We reserve the right, in our sole
+              discretion, to make changes or modifications to these Legal Terms
+              at any time and for any reason. We will alert you about any
+              changes by updating the "Last updated" date of these Legal Terms,
+              and you waive any right to receive specific notice of each such
+              change.
+            </p>
+
+            <p>
+              The Services are intended for users who are at least 18 years old.
+              Persons under the age of 18 are not permitted to use or register
+              for the Services.
+            </p>
+
             <p>We recommend that you print a copy of these Legal Terms for your records.</p>
           </section>
 
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold text-zinc-900 uppercase">TABLE OF CONTENTS</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-blue-800 font-medium text-sm">
-              <li>1. OUR SERVICES</li>
-              <li>2. INTELLECTUAL PROPERTY RIGHTS</li>
-              <li>3. USER REPRESENTATIONS</li>
-              <li>4. PROHIBITED ACTIVITIES</li>
-              <li>5. USER GENERATED CONTRIBUTIONS</li>
-              <li>6. CONTRIBUTION LICENSE</li>
-              <li>7. SERVICES MANAGEMENT</li>
-              <li>8. PRIVACY POLICY</li>
-              <li>9. TERM AND TERMINATION</li>
-              <li>10. MODIFICATIONS AND INTERRUPTIONS</li>
-              <li>11. GOVERNING LAW</li>
-              <li>12. DISPUTE RESOLUTION</li>
-              <li>13. CORRECTIONS</li>
-              <li>14. DISCLAIMER</li>
-              <li>15. LIMITATIONS OF LIABILITY</li>
-              <li>16. INDEMNIFICATION</li>
-              <li>17. USER DATA</li>
-              <li>18. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</li>
-              <li>19. CALIFORNIA USERS AND RESIDENTS</li>
-              <li>20. MISCELLANEOUS</li>
-              <li>21. CONTACT US</li>
-            </ul>
-          </div>
-
-          <section className="space-y-12 pt-10">
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">1. OUR SERVICES</h2>
-              <p>The information provided when using the Services is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
-              <p>The Services are not tailored to comply with industry-specific regulations (Health Insurance Portability and Accountability Act (HIPAA), Federal Information Security Management Act (FISMA), etc.), so if your interactions would be subjected to such laws, you may not use the Services. You may not use the Services in a way that would violate the Gramm-Leach-Bliley Act (GLBA).</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">2. INTELLECTUAL PROPERTY RIGHTS</h2>
-              <h3 className="text-xl font-bold text-zinc-800">Our intellectual property</h3>
-              <p>We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the "Content"), as well as the trademarks, service marks, and logos contained therein (the "Marks").</p>
-              <p>Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties in the United States and around the world.</p>
-              <p>The Content and Marks are provided in or through the Services "AS IS" for your personal, non-commercial use or internal business purpose only.</p>
-              
-              <h3 className="text-xl font-bold text-zinc-800">Your use of our Services</h3>
-              <p>Subject to your compliance with these Legal Terms, including the "PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive, non-transferable, revocable license to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>access the Services; and</li>
-                <li>download or print a copy of any portion of the Content to which you have properly gained access,</li>
-              </ul>
-              <p>solely for your personal, non-commercial use or internal business purpose.</p>
-              <p>Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</p>
-              <p>If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: info@youmailengine.com.</p>
-              
-              <h3 className="text-xl font-bold text-zinc-800">Your submissions</h3>
-              <p>Please review this section and the "PROHIBITED ACTIVITIES" section carefully prior to using our Services to understand the (a) rights you give us and (b) obligations you have when you post or upload any content through the Services.</p>
-              <p><strong>Submissions:</strong> By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("Submissions"), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">3. USER REPRESENTATIONS</h2>
-              <p>By using the Services, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Legal Terms; (2) you are not a minor in the jurisdiction in which you reside; (3) you will not access the Services through automated or non-human means, whether through a bot, script or otherwise; (4) you will not use the Services for any illegal or unauthorized purpose; and (5) your use of the Services will not violate any applicable law or regulation.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">4. PROHIBITED ACTIVITIES</h2>
-              <p>You may not access or use the Services for any purpose other than that for which we make the Services available. The Services may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
-              <p>As a user of the Services, you agree not to:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>Systematically retrieve data or other content from the Services to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
-                <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
-                <li>Circumvent, disable, or otherwise interfere with security-related features of the Services, including features that prevent or restrict the use or copying of any Content or enforce limitations on the use of the Services and/or the Content contained therein.</li>
-                <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Services.</li>
-                <li>Use any information obtained from the Services in order to harass, abuse, or harm another person.</li>
-                <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
-                <li>Use the Services in a manner inconsistent with any applicable laws or regulations.</li>
-                <li>Engage in unauthorized framing of or linking to the Services.</li>
-                <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming (continuous posting of repetitive text), that interferes with any party’s uninterrupted use and enjoyment of the Services or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Services.</li>
-                <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
-                <li>Delete the copyright or other proprietary rights notice from any Content.</li>
-                <li>Attempt to impersonate another user or person or use the username of another user.</li>
-                <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats ("gifs"), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as "spyware" or "passive collection mechanisms" or "pcms").</li>
-                <li>Interfere with, disrupt, or create an undue burden on the Services or the networks or services connected to the Services.</li>
-                <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Services to you.</li>
-                <li>Attempt to bypass any measures of the Services designed to prevent or restrict access to the Services, or any portion of the Services.</li>
-                <li>Copy or adapt the Services' software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
-                <li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Services.</li>
-                <li>Except as may be the result of standard search engine or Internet browser usage, use, launch, develop, or distribute any automated system, including without limitation, any spider, robot, cheat utility, scraper, or offline reader that accesses the Services, or use or launch any unauthorized script or other software.</li>
-                <li>Use a buying agent or purchasing agent to make purchases on the Services.</li>
-                <li>Make any unauthorized use of the Services, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
-                <li>Use the Services as part of any effort to compete with us or otherwise use the Services and/or the Content for any revenue-generating endeavor or commercial enterprise.</li>
-                <li>Use the Services to advertise or offer to sell goods and services.</li>
-                <li>Sell or otherwise transfer your profile.</li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">5. USER GENERATED CONTRIBUTIONS</h2>
-              <p>The Services does not offer users to submit or post content. We may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Services, including but not limited to text, writings, video, audio, photographs, graphics, comments, suggestions, or personal information or other material (collectively, "Contributions").</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">6. CONTRIBUTION LICENSE</h2>
-              <p>You and Services agree that we may access, store, process, and use any information and personal data that you provide following the terms of the Privacy Policy and your choices (including settings).</p>
-              <p>By submitting suggestions or other feedback regarding the Services, you agree that we can use and share such feedback for any purpose without compensation to you.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">7. SERVICES MANAGEMENT</h2>
-              <p>We reserve the right, but not the obligation, to: (1) monitor the Services for violations of these Legal Terms; (2) take appropriate legal action against anyone who, in our sole discretion, violates the law or these Legal Terms; (3) in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof; (4) in in our sole discretion and without limitation, notice, or liability, to remove from the Services or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems; and (5) otherwise manage the Services in a manner designed to protect our rights and property and to facilitate the proper functioning of the Services. </p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">8. PRIVACY POLICY</h2>
-              <p>We care about data privacy and security. Please review our Privacy Policy: <a href="https://youmailengine.com/privacy-policy" className="text-blue-800 underline">https://youmailengine.com/privacy-policy</a>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">9. TERM AND TERMINATION</h2>
-              <p>These Legal Terms shall remain in full force and effect while you use the Services. WITHOUT LIMITING ANY OTHER PROVISION OF THESE LEGAL TERMS, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SERVICES (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">10. MODIFICATIONS AND INTERRUPTIONS</h2>
-              <p>We reserve the right to change, modify, or remove the contents of the Services at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Services. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Services.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">11. GOVERNING LAW</h2>
-              <p>These Legal Terms and your use of the Services are governed by and construed in accordance with the laws of the State of California applicable to agreements made and to be entirely performed within the State of California, without regard to its conflict of law principles.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">12. DISPUTE RESOLUTION</h2>
-              <p>Any legal action of whatever nature brought by either you or us (collectively, the "Parties" and individually, a "Party") shall be commenced or prosecuted in the state and federal courts located in California, and the Parties hereby consent to, and waive all defenses of lack of personal jurisdiction and forum non conveniens with respect to venue and jurisdiction in such state and federal courts.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">13. CORRECTIONS</h2>
-              <p>There may be information on the Services that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Services at any time, without prior notice.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">14. DISCLAIMER</h2>
-              <p>THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">15. LIMITATIONS OF LIABILITY</h2>
-              <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">16. INDEMNIFICATION</h2>
-              <p>You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) use of the Services; (2) breach of these Legal Terms; (3) any breach of your representations and warranties set forth in these Legal Terms; (4) your violation of the rights of a third party, including but not limited to intellectual property rights; or (5) any overt harmful act toward any other user of the Services with whom you connected via the Services.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">17. USER DATA</h2>
-              <p>We will maintain certain data that you transmit to the Services for the purpose of managing the performance of the Services, as well as data relating to your use of the Services. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Services.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">18. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2>
-              <p>Visiting the Services, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and on the Services, satisfy any legal requirement that such communication be in writing.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">19. CALIFORNIA USERS AND RESIDENTS</h2>
-              <p>If any complaint with us is not satisfactorily resolved, you can contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs in writing at 1625 North Market Blvd., Suite N 112, Sacramento, California 95834 or by telephone at (800) 952-5210 or (916) 445-1254.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">20. MISCELLANEOUS</h2>
-              <p>These Legal Terms and any policies or operating rules posted by us on the Services or in respect to the Services constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Legal Terms shall not operate as a waiver of such right or provision.</p>
-            </div>
-
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-zinc-900 uppercase">21. CONTACT US</h2>
-              <p>In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:</p>
-              <div className="font-bold text-zinc-900">
-                <p>You Mail Engine Team</p>
-                <p>info@youmailengine.com</p>
-              </div>
-            </div>
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Table of contents
+            </h2>
+            <ol className="list-decimal pl-6 space-y-2">
+              <li>OUR SERVICES</li>
+              <li>INTELLECTUAL PROPERTY RIGHTS</li>
+              <li>USER REPRESENTATIONS</li>
+              <li>PROHIBITED ACTIVITIES</li>
+              <li>USER GENERATED CONTRIBUTIONS</li>
+              <li>CONTRIBUTION LICENSE</li>
+              <li>SERVICES MANAGEMENT</li>
+              <li>PRIVACY POLICY</li>
+              <li>TERM AND TERMINATION</li>
+              <li>MODIFICATIONS AND INTERRUPTIONS</li>
+              <li>GOVERNING LAW</li>
+              <li>DISPUTE RESOLUTION</li>
+              <li>CORRECTIONS</li>
+              <li>DISCLAIMER</li>
+              <li>LIMITATIONS OF LIABILITY</li>
+              <li>INDEMNIFICATION</li>
+              <li>USER DATA</li>
+              <li>ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</li>
+              <li>MISCELLANEOUS</li>
+              <li>CONTACT US</li>
+            </ol>
           </section>
+
+          {sections.map((section, index) => (
+            <section key={index}>
+              <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+                {section.title}
+              </h2>
+              <div className="space-y-4">
+                {section.body.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 

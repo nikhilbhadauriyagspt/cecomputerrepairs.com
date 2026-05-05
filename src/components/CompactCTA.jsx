@@ -45,7 +45,7 @@ const CompactCTA = () => {
               </div>
               <button
                 type="submit"
-                className="h-14 inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 text-base font-extrabold text-blue-600 hover:bg-blue-50 transition-all shadow-xl shadow-black/10 active:scale-95 whitespace-nowrap"
+                className="h-14 inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 text-base font-medium text-blue-600 hover:bg-blue-50 transition-all shadow-xl shadow-black/10 active:scale-95 whitespace-nowrap"
               >
                 Subscribe
                 <Send className="w-5 h-5" />

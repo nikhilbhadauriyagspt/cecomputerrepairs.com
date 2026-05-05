@@ -1,174 +1,285 @@
-import React from 'react';
-import { Search, BookOpen, ListChecks, ShieldCheck, ChevronRight, ArrowRight, Sparkles, Target, Zap } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import SEO from '../components/SEO';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  CalendarClock,
+  Search,
+  MessageSquareText,
+  Wrench,
+  CheckCircle2,
+  PackageCheck,
+  ArrowRight,
+} from "lucide-react";
+import SEO from "../components/SEO";
 
 const Steps = () => {
-  const navigate = useNavigate();
-  
-  const learningSteps = [
+  const steps = [
     {
-      number: "01",
-      icon: <Search className="w-8 h-8" />,
-      title: "Discover Your Topic",
-      description: "Browse our extensive collection of email guides. Whether it's setting up a new account, understanding IMAP/POP3, or learning about encryption, start with what interests you most.",
-      color: "blue"
+      icon: <CalendarClock />,
+      title: "Step 1: Book a Service or Visit",
+      desc: [
+        "You can begin by submitting a service request or visiting our location for inspection.",
+        "This step allows us to gather basic information about the device and the issue you are experiencing.",
+        "Providing clear details helps speed up the diagnosis process.",
+      ],
+      label: "What you can provide:",
+      points: [
+        "Device type (laptop or desktop)",
+        "Description of the issue",
+        "Any visible damage or recent changes",
+      ],
     },
     {
-      number: "02",
-      icon: <BookOpen className="w-8 h-8" />,
-      title: "Absorb Simple Insights",
-      description: "Our guides are stripped of technical jargon. Read through clear, everyday explanations designed to make complex digital concepts feel like second nature.",
-      color: "emerald"
+      icon: <Search />,
+      title: "Step 2: Device Inspection & Diagnosis",
+      desc: [
+        "Once the device is received, we perform a hardware inspection to identify the root cause of the problem.",
+        "The purpose of this step is to understand whether the issue can be repaired or if a component needs replacement.",
+      ],
+      label: "This includes checking key components such as:",
+      points: [
+        "Display and screen condition",
+        "Storage devices (hard drive or SSD)",
+        "Battery and power system",
+        "Cooling system and fan",
+        "Motherboard and internal connections",
+      ],
     },
     {
-      number: "03",
-      icon: <ListChecks className="w-8 h-8" />,
-      title: "Follow the Blueprint",
-      description: "Use our step-by-step checklists to apply your new knowledge. Each guide provides actionable points that you can test in your own inbox immediately.",
-      color: "amber"
+      icon: <MessageSquareText />,
+      title: "Step 3: Issue Explanation",
+      desc: [
+        "After diagnosis, the identified issue is explained in clear and simple terms.",
+        "This step ensures transparency and helps you understand the condition of your device before any repair is performed.",
+      ],
+      label: "You will be informed about:",
+      points: [
+        "What is causing the problem",
+        "Whether repair or replacement is required",
+        "The general scope of the work involved",
+      ],
     },
     {
-      number: "04",
-      icon: <ShieldCheck className="w-8 h-8" />,
-      title: "Master Your Inbox",
-      description: "Achieve digital confidence. Recognize security threats, organize your communication efficiently, and use email as a powerful tool for your personal and professional life.",
-      color: "rose"
-    }
+      icon: <Wrench />,
+      title: "Step 4: Repair or Component Replacement",
+      desc: [
+        "Based on the diagnosis, the required computer repair or laptop repair service is carried out.",
+        "Repairs are performed using compatible parts and appropriate methods based on the device model and condition.",
+      ],
+      label: "This may include:",
+      points: [
+        "Screen replacement",
+        "Hard drive repair or replacement",
+        "Battery or keyboard replacement",
+        "Fan repair or cooling system work",
+        "Motherboard-level repair (if applicable)",
+      ],
+    },
+    {
+      icon: <CheckCircle2 />,
+      title: "Step 5: Testing & Quality Check",
+      desc: [
+        "After the repair is completed, the device goes through a testing phase to ensure proper functionality.",
+        "Testing helps confirm that the repair has addressed the issue effectively.",
+      ],
+      label: "This includes:",
+      points: [
+        "Power and startup testing",
+        "Display and input checks",
+        "Performance and stability verification",
+        "Cooling and temperature monitoring",
+      ],
+    },
+    {
+      icon: <PackageCheck />,
+      title: "Step 6: Device Handover",
+      desc: [
+        "Once testing is complete, the device is ready for pickup.",
+      ],
+      label: "At this stage:",
+      points: [
+        "You can review the device condition",
+        "Basic information about the repair may be shared",
+        "Any important usage notes are explained",
+      ],
+    },
   ];
 
-  const colorMap = {
-    blue: "bg-blue-50 text-blue-600 border-blue-100 shadow-blue-100/50",
-    emerald: "bg-emerald-50 text-emerald-600 border-emerald-100 shadow-emerald-100/50",
-    amber: "bg-amber-50 text-amber-600 border-amber-100 shadow-amber-100/50",
-    rose: "bg-rose-50 text-rose-600 border-rose-100 shadow-rose-100/50",
-  };
+  const ensures = [
+    "Accurate identification of hardware issues",
+    "Repair decisions based on actual device condition",
+    "Clear communication at each step",
+    "Organized and consistent repair workflow",
+  ];
+
+  const notes = [
+    "Not all hardware issues are repairable; some may require replacement",
+    "Data safety depends on the condition of the storage device",
+    "Repair time may vary depending on complexity and parts availability",
+    "Diagnosis helps avoid unnecessary repairs",
+  ];
+
+  const repairs = [
+    "Laptop screen replacement",
+    "Hard drive and storage issues",
+    "Battery and charging problems",
+    "Overheating and fan-related issues",
+    "Keyboard and input device repair",
+    "General computer repair and diagnostics",
+  ];
 
   return (
-    <div className="bg-white min-h-screen">
-      <SEO 
-        title="Steps" 
-        description="Follow our clear, step-by-step roadmap to master your email inbox and improve your digital communication skills."
+    <main className="w-full bg-white font-['Poppins']">
+      <SEO
+        title="How Our Computer Repair Process Works | C.E. Computer Repair "
+        description="Understand our simple computer repair process from diagnosis to repair. We provide clear steps, reliable service, and transparent device inspection."
       />
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)]" />
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="flex items-center gap-2 text-[13px] font-bold text-blue-600 uppercase tracking-widest mb-6">
-            <Link to="/" className="hover:text-blue-800 transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4" />
-            <span>Learning Path</span>
+
+      <section className="w-full bg-[#062238] py-20 lg:py-28">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h1 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-medium leading-tight">
+            Our Computer Repair Process
+          </h1>
+        </div>
+      </section>
+
+      <section className="w-full bg-white py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-[520px_1fr] gap-12 lg:gap-20">
+          <div>
+            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
+              Intro Section
+            </p>
+            <h2 className="text-[#082F57] text-[30px] md:text-[40px] lg:text-[48px] font-medium leading-tight">
+              Our Computer Repair Process
+            </h2>
+            <div className="w-12 h-[3px] bg-[#1E86C8] mt-6" />
           </div>
-          
-          <div className="max-w-4xl">
-            <h1 className="text-5xl lg:text-5xl font-serif text-zinc-900 leading-[1.1] mb-8">
-              Your step-by-step <span className="text-blue-700 italic">roadmap</span> to email mastery.
-            </h1>
-            <p className="text-xl text-zinc-600 leading-relaxed max-w-2xl">
-              We've broken down the complex world of digital communication into four simple, actionable stages. Follow the path to become an email expert.
+
+          <div className="space-y-6">
+            <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+              At C.E. Computer Repair, every device goes through a structured and careful process designed to identify hardware issues accurately and apply appropriate repair solutions. Our goal is to make computer repair and laptop repair services easy to understand, with clear steps from initial inspection to final testing.
+            </p>
+            <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+              This process helps ensure that each device is handled based on its actual condition, without unnecessary procedures or guesswork.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Steps Visualization */}
-      <section className="py-20 bg-zinc-50/50">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {learningSteps.map((step, index) => (
-              <div 
-                key={index}
-                className="group relative bg-white border border-zinc-100 rounded-[3rem] p-10 lg:p-14 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
-              >
-                <div className="flex justify-between items-start mb-10">
-                  <div className={`w-20 h-20 rounded-3xl flex items-center justify-center border-2 ${colorMap[step.color]} transition-transform group-hover:scale-110 duration-500`}>
-                    {step.icon}
-                  </div>
-                  <span className="text-6xl font-serif text-zinc-100 group-hover:text-blue-50 transition-colors duration-500">
-                    {step.number}
-                  </span>
+      <section className="w-full bg-[#F7F7F7] py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {steps.map((step, index) => (
+              <div key={index} className="bg-white border border-[#D7E9F7] p-7">
+                <div className="w-[58px] h-[58px] bg-[#0A4F86] text-white flex items-center justify-center mb-6">
+                  {React.cloneElement(step.icon, {
+                    className: "w-7 h-7 stroke-[1.8]",
+                  })}
                 </div>
-                
-                <h3 className="text-3xl font-bold text-zinc-900 mb-6 group-hover:text-blue-700 transition-colors">
+
+                <h3 className="text-[#082F57] text-[22px] font-medium leading-snug mb-5">
                   {step.title}
                 </h3>
-                <p className="text-zinc-600 text-lg leading-relaxed mb-8">
-                  {step.description}
+
+                <div className="space-y-4 mb-6">
+                  {step.desc.map((item, i) => (
+                    <p key={i} className="text-[#6B7280] text-[15px] leading-[1.85]">
+                      {item}
+                    </p>
+                  ))}
+                </div>
+
+                <p className="text-[#082F57] text-[14px] font-medium mb-4">
+                  {step.label}
                 </p>
-                
-               
+
+                <div className="space-y-3">
+                  {step.points.map((point, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#1E86C8] shrink-0 mt-0.5" />
+                      <p className="text-[#6B7280] text-[14px] leading-[1.6]">
+                        {point}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Deep Dive Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-                <Sparkles className="w-4 h-4" />
-                Why it works
-              </div>
-              <h2 className="text-4xl font-serif text-zinc-900 mb-8 leading-tight">
-                Designed for the <span className="text-blue-700">modern learner.</span>
-              </h2>
-              <div className="space-y-8">
-                <div className="flex gap-5">
-                  <div className="shrink-0 w-12 h-12 bg-zinc-900 text-white rounded-2xl flex items-center justify-center">
-                    <Target className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-zinc-900 mb-2">Micro-Learning</h4>
-                    <p className="text-zinc-600">Complex topics are divided into small, manageable chunks that take less than 5 minutes to understand.</p>
-                  </div>
+      <section className="w-full bg-white py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium mb-8">
+              What This Process Ensures
+            </h2>
+            <div className="space-y-4">
+              {ensures.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 border-b border-[#D7E9F7] pb-4">
+                  <CheckCircle2 className="w-5 h-5 text-[#1E86C8] shrink-0 mt-0.5" />
+                  <p className="text-[#082F57] text-[15px] font-medium">{item}</p>
                 </div>
-                <div className="flex gap-5">
-                  <div className="shrink-0 w-12 h-12 bg-zinc-900 text-white rounded-2xl flex items-center justify-center">
-                    <Zap className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-zinc-900 mb-2">Instant Application</h4>
-                    <p className="text-zinc-600">Every step includes a "Try This Now" section to help you practice what you've just learned in your own inbox.</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-            
-            <div className="lg:col-span-7">
-              <div className="relative p-1 bg-gradient-to-br from-blue-100 to-indigo-50 rounded-[3rem]">
-                <div className="bg-white rounded-[2.8rem] p-8 md:p-12 border border-white/50 shadow-2xl">
-                  <h3 className="text-2xl font-bold text-zinc-900 mb-6 text-center">Ready to begin?</h3>
-                  <div className="space-y-4 mb-10">
-                    {[
-                      "Unlimited access to all guides",
-                      "Simplified security checklists",
-                      "Privacy-first learning materials",
-                      "Regularly updated content"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 p-4 bg-zinc-50 rounded-2xl border border-zinc-100">
-                        <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white shrink-0">
-                          <ChevronRight className="w-4 h-4" />
-                        </div>
-                        <span className="font-medium text-zinc-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <button 
-                    onClick={() => navigate("/guides")}
-                    className="w-full bg-blue-700 text-white py-5 rounded-2xl font-bold text-lg hover:bg-blue-800 transition-all active:scale-[0.98] shadow-xl shadow-blue-200"
-                  >
-                    Explore All Guides
-                  </button>
+          </div>
+
+          <div className="bg-[#062238] p-8">
+            <h2 className="text-white text-[30px] md:text-[40px] font-medium mb-8">
+              Important Notes
+            </h2>
+            <div className="space-y-4">
+              {notes.map((item, index) => (
+                <div key={index} className="flex items-start gap-3 border border-white/10 p-4">
+                  <CheckCircle2 className="w-5 h-5 text-[#1E86C8] shrink-0 mt-0.5" />
+                  <p className="text-white/78 text-[15px] leading-[1.7]">{item}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
-    </div>
+
+      <section className="w-full bg-[#F7F7F7] py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium mb-10 text-center">
+            Common Types of Repairs Handled
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {repairs.map((item, index) => (
+              <div key={index} className="bg-white border border-[#D7E9F7] p-5 flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#1E86C8] shrink-0 mt-0.5" />
+                <p className="text-[#082F57] text-[15px] font-medium leading-[1.6]">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-white py-16 lg:py-24">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-16 text-center">
+          <h2 className="text-[#082F57] text-[30px] md:text-[42px] font-medium leading-tight mb-6">
+            Ready to get your device checked?
+          </h2>
+
+          <p className="text-[#6B7280] text-[16px] leading-[1.8] max-w-[760px] mx-auto mb-8">
+            You can submit a service request or visit our location to begin the inspection process.
+            We’ll guide you through each step with clarity and a structured approach.
+          </p>
+
+          <Link
+            to="/contact-book-service"
+            className="inline-flex items-center gap-2 bg-[#1E86C8] text-white px-8 py-4 text-[14px] font-medium uppercase tracking-[0.08em] hover:bg-[#0A4F86] transition"
+          >
+            Book Your Repair
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 };
 

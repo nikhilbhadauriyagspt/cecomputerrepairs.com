@@ -1,98 +1,208 @@
+import React from "react";
 import SEO from "../components/SEO";
 
 const CookiePolicy = () => {
   return (
-    <section className="py-24 bg-white font-sans text-zinc-900 min-h-screen">
-      <SEO 
-        title="Cookie Policy" 
-        description="Understand how You Mail Engine uses cookies and similar technologies to improve your experience and analyze site traffic."
+    <main className="w-full bg-white font-['Poppins']">
+      <SEO
+        title="Cookie Policy | C.E. Computer Repair"
+        description="Understand how we use cookies to improve your browsing experience and analyse website usage on our computer repair"
       />
-      <div className="max-w-[1000px] mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-semibold mb-8 text-blue-800">Cookie Policy</h1>
-        <p className="text-zinc-600 mb-12 border-b border-zinc-100 pb-8 uppercase font-bold tracking-widest">Last Updated: April 28, 2026</p>
 
-        <div className="space-y-12 text-[17px] leading-relaxed text-zinc-700">
-          <p>
-            This Cookie Policy explains how You Mail Engine (“Company,” “we,” “us,” or “our”) uses cookies and similar tracking technologies when you visit our website <a href="http://youmailengine.com/" className="text-blue-800 underline">http://youmailengine.com/</a> (the “Website”). This policy should be read together with our <strong>PRIVACY POLICY</strong> and <strong>TERMS OF SERVICE</strong>.
+      <section className="w-full bg-[#062238] py-20 lg:py-28">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.24em] mb-5">
+            Cookie Policy — C.E. Computer Repair
           </p>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">1. What Are Cookies?</h2>
-            <p>
-              Cookies are small text files that are placed on your device (computer, smartphone, tablet) when you visit a website. Cookies help websites function efficiently, enhance user experience, and provide information to website owners about how visitors interact with the site.
-            </p>
-            <p>Cookies do not give us access to your device or personal files.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">2. How We Use Cookies</h2>
-            <p>You Mail Engine uses cookies and similar technologies to:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Ensure the Website functions properly</li>
-              <li>Maintain security and prevent fraudulent activity</li>
-              <li>Remember user preferences and settings</li>
-              <li>Analyze Website performance and usage patterns</li>
-              <li>Improve our services and user experience</li>
-            </ul>
-            <p>Cookies may collect technical information such as IP address, browser type, device information, and browsing behavior, as described in our <strong>PRIVACY POLICY</strong>.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">3. Types of Cookies We Use</h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-bold text-zinc-800">a) Essential Cookies</h3>
-                <p>These cookies are strictly necessary for the Website to operate correctly. They enable core functionality such as security, page navigation, and access to essential features. Without these cookies, the Website may not function properly.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-zinc-800">b) Performance and Analytics Cookies</h3>
-                <p>These cookies help us understand how visitors interact with our Website by collecting aggregated and anonymized information. This allows us to measure performance, identify errors, and improve Website functionality.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-zinc-800">c) Functional Cookies</h3>
-                <p>Functional cookies allow the Website to remember choices you make, such as language preferences or region, to provide a more personalized experience.</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-zinc-800">d) Advertising and Third-Party Cookies</h3>
-                <p>We may allow trusted third-party service providers to place cookies on our Website for analytics or advertising purposes. These cookies may be used to deliver relevant advertisements and measure campaign effectiveness, subject to applicable laws and user consent where required <strong>PRIVACY POLICY</strong>.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">4. Third-Party Tracking Technologies</h2>
-            <p>We may use third-party services such as Google Analytics to analyze Website usage and traffic patterns. These third parties may use cookies or similar technologies to collect information about your online activities across different websites.</p>
-            <p>You can learn more about Google’s data practices by visiting Google’s Privacy & Terms page or opt out using Google’s opt-out tools, as referenced in our <strong>PRIVACY POLICY</strong>.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">5. Your Cookie Choices and Controls</h2>
-            <p>You have the right to accept or reject cookies. Most web browsers automatically accept cookies, but you can usually modify your browser settings to decline cookies or alert you when cookies are being sent.</p>
-            <p>Please note that disabling cookies may affect certain features or functionality of the Website.</p>
-            <p>For more information on managing cookies, visit your browser’s help section.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">6. Do Not Track Signals</h2>
-            <p>Some browsers offer a “Do Not Track” (DNT) feature. At this time, there is no uniform industry standard for recognizing DNT signals, and You Mail Engine does not currently respond to such signals <strong>PRIVACY POLICY</strong>.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">7. Updates to This Cookie Policy</h2>
-            <p>We may update this Cookie Policy from time to time to reflect changes in technology, legal requirements, or our practices. Any updates will be indicated by a revised “Last Updated” date at the top of this policy.</p>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-zinc-900">8. Contact Us</h2>
-            <p>If you have questions or concerns about this Cookie Policy or our use of cookies, you may contact us at:</p>
-            <div className="font-bold text-zinc-900">
-              <p>You Mail Engine</p>
-              <p>Email: info@youmailengine.com</p>
-            </div>
-          </div>
+          <h1 className="text-white text-[36px] md:text-[52px] lg:text-[64px] font-medium leading-tight">
+            Cookie Policy
+          </h1>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="py-14 lg:py-20 bg-white">
+        <div className="max-w-[1100px] mx-auto px-6 text-[#374151] text-[15px] leading-[1.9] space-y-10">
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Introduction
+            </h2>
+            <p>
+              This Cookie Policy explains how C.E. Computer Repair uses cookies and similar technologies on its website in connection with computer repair and laptop repair services.
+            </p>
+            <p className="mt-4">
+              Cookies help improve website functionality, understand user interaction, and provide a smoother browsing experience. By continuing to use this website, you agree to the use of cookies as described in this policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              What Are Cookies
+            </h2>
+            <p>
+              Cookies are small text files stored on your device when you visit a website. These files help the website recognize your browser and remember certain information, such as preferences or previous interactions.
+            </p>
+            <p className="mt-4">
+              Cookies do not typically contain personally identifiable information, but they may be linked to data you provide through forms or interactions on the website.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Types of Cookies We Use
+            </h2>
+
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-[#082F57] text-[20px] font-medium mb-3">
+                  1. Essential Cookies
+                </h3>
+                <p>
+                  These cookies are necessary for the basic operation of the website. They enable core functionality such as page navigation, form submissions, and secure access to certain areas.
+                </p>
+                <p className="mt-4">
+                  Without these cookies, the website may not function properly.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-[#082F57] text-[20px] font-medium mb-3">
+                  2. Performance & Analytics Cookies
+                </h3>
+                <p>
+                  These cookies help us understand how visitors use the website. They collect information such as:
+                </p>
+                <ul className="list-disc pl-6 mt-4 space-y-2">
+                  <li>Pages visited</li>
+                  <li>Time spent on pages</li>
+                  <li>Navigation patterns</li>
+                </ul>
+                <p className="mt-4">
+                  This data is used to improve website performance and user experience.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-[#082F57] text-[20px] font-medium mb-3">
+                  3. Functionality Cookies
+                </h3>
+                <p>
+                  Functionality cookies allow the website to remember your preferences, such as form inputs or selected options, to provide a more personalized experience.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-[#082F57] text-[20px] font-medium mb-3">
+                  4. Advertising & Tracking Cookies
+                </h3>
+                <p>
+                  If advertising tools or analytics platforms are used, cookies may be placed to:
+                </p>
+                <ul className="list-disc pl-6 mt-4 space-y-2">
+                  <li>Measure ad performance</li>
+                  <li>Understand user interaction with ads</li>
+                  <li>Improve relevance of displayed content</li>
+                </ul>
+                <p className="mt-4">
+                  These cookies do not directly identify individual users but help analyze general behavior.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              How We Use Cookies
+            </h2>
+            <p>Cookies are used to support the following:</p>
+            <ul className="list-disc pl-6 mt-4 space-y-2">
+              <li>Maintaining website functionality</li>
+              <li>Improving user experience</li>
+              <li>Analyzing website traffic and performance</li>
+              <li>Supporting service request forms and interactions</li>
+              <li>Understanding how users engage with content related to computer repair services</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Third-Party Cookies
+            </h2>
+            <p>
+              Some cookies may be set by third-party services integrated into the website, such as analytics or embedded content providers.
+            </p>
+            <p className="mt-4">
+              These third parties may collect data according to their own privacy policies. C.E. Computer Repair does not control how third-party cookies are used.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Managing Cookies
+            </h2>
+            <p>
+              You can manage or disable cookies through your browser settings. Most browsers allow you to:
+            </p>
+            <ul className="list-disc pl-6 mt-4 space-y-2">
+              <li>View stored cookies</li>
+              <li>Delete cookies</li>
+              <li>Block cookies from specific websites</li>
+              <li>Disable all cookies</li>
+            </ul>
+            <p className="mt-4">
+              Please note that disabling certain cookies may affect the functionality of the website.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Consent
+            </h2>
+            <p>
+              By using this website, you consent to the use of cookies as outlined in this Cookie Policy. If a cookie consent banner is implemented, you may have options to accept or manage cookie preferences.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Data and Privacy
+            </h2>
+            <p>
+              Cookies may be used alongside information submitted through forms, such as service requests. For more details on how personal data is handled, please refer to our Privacy Policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Changes to This Policy
+            </h2>
+            <p>
+              This Cookie Policy may be updated periodically to reflect changes in technology, legal requirements, or website functionality. Updates will be posted on this page.
+            </p>
+          </section>
+
+          <section className="bg-[#F4F8FC] border border-[#D7E9F7] p-6">
+            <h2 className="text-[#082F57] text-[26px] font-medium mb-5">
+              Contact Information
+            </h2>
+            <p>
+              For questions about this Cookie Policy or how cookies are used, you can contact:
+            </p>
+            <p className="mt-4">
+              C.E. Computer Repair <br />
+              1818 E Yesler Way, Suite 101 <br />
+              Seattle, WA 98122, United States <br />
+              Email:{" "}
+              <a
+                href="mailto:contact@cecomputerrepairs.com"
+                className="text-[#1E86C8] hover:underline"
+              >
+                contact@cecomputerrepairs.com
+              </a>
+            </p>
+          </section>
+        </div>
+      </section>
+    </main>
   );
 };
 

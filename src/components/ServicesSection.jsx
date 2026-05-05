@@ -1,99 +1,129 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, ArrowUpRight, MailCheck } from "lucide-react";
-import { guidesData } from "../data/guidesData.jsx";
+import {
+  Laptop,
+  Monitor,
+  HardDrive,
+  Cpu,
+  BatteryCharging,
+  Keyboard,
+  Fan,
+  Thermometer,
+  SearchCheck,
+} from "lucide-react";
 
 const ServicesSection = () => {
-  const displayServices = guidesData.slice(0, 6);
+  const services = [
+    {
+      icon: <Laptop />,
+      title: "Laptop & Desktop Repair",
+      text: "Comprehensive repair solutions for performance issues, startup failures, and hardware faults.",
+    },
+    {
+      icon: <Monitor />,
+      title: "Screen Replacement",
+      text: "Replacement of cracked, flickering, or non-functional laptop screens using compatible parts.",
+    },
+    {
+      icon: <HardDrive />,
+      title: "Hard Drive Repair & Storage Issues",
+      text: "Diagnosis of storage-related problems including system crashes, slow performance, and drive failures.",
+    },
+    {
+      icon: <Cpu />,
+      title: "Motherboard Repair",
+      text: "Inspection and repair of motherboard-related issues affecting power, display, or system stability.",
+    },
+    {
+      icon: <BatteryCharging />,
+      title: "Battery & Power Issues",
+      text: "Battery replacement and troubleshooting of charging-related problems.",
+    },
+    {
+      icon: <Keyboard />,
+      title: "Keyboard & Input Repair",
+      text: "Repair or replacement of non-responsive or damaged keyboards.",
+    },
+    {
+      icon: <Fan />,
+      title: "Cooling & Fan Repair",
+      text: "Fan replacement and cleaning to address overheating and airflow issues.",
+    },
+    {
+      icon: <Thermometer />,
+      title: "Thermal Paste Replacement",
+      text: "Improving heat transfer for better system cooling and performance.",
+    },
+    {
+      icon: <SearchCheck />,
+      title: "Free Diagnosis",
+      text: "Initial inspection to identify the issue before proceeding with repair.",
+    },
+  ];
 
   return (
     <section
       id="services"
-      className="relative w-full overflow-hidden bg-[#f8fafc] py-20 lg:py-28 border-b border-zinc-100"
+      className="w-full bg-[#F7F7F7] py-20 lg:py-28 font-['Poppins']"
     >
-      <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-blue-100/50 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-amber-100/50 rounded-full blur-3xl" />
-
-      <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white border border-zinc-200 px-4 py-2 rounded-full mb-5 shadow-sm">
-            <MailCheck className="w-4 h-4 text-blue-600" />
-            <span className="text-blue-700 font-bold tracking-[0.16em] uppercase text-[11px]">
-              Email Learning Resources
-            </span>
-          </div>
-
-          <h2 className="text-3xl md:text-4xl font-serif text-zinc-900 mb-6 leading-tight">
-            Simple guides to understand{" "}
-            <span className="text-blue-700">email better.</span>
+      <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+        
+        {/* Heading */}
+        <div className="text-center max-w-[820px] mx-auto mb-16">
+          <h2 className="text-[#111827] text-[34px] md:text-[42px] font-medium uppercase tracking-[-1px]">
+            Our Services
           </h2>
 
-          <p className="text-zinc-600 text-base md:text-lg leading-relaxed">
-            Read clear, human-friendly email articles made for everyday users.
-            Learn about email basics, settings, privacy, inbox management, and
-            safe usage without confusing technical words.
-          </p>
-        </div>
+          <div className="w-10 h-[3px] bg-[#1E86C8] mx-auto mt-4 mb-7" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-          {displayServices.map((service, index) => (
+          <p className="text-[#4B5563] text-[16px] leading-[1.8] font-medium">
+            We provide a range of hardware repair and maintenance services
+            focused on careful diagnostics, practical repair solutions, and
+            reliable device care.
+          </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-16">
+          {services.map((service, index) => (
             <Link
               key={index}
-              to={`/guides/${service.id}`}
-              className="group relative min-h-[300px] rounded-[2rem] bg-white border border-zinc-100 p-7 lg:p-8 shadow-sm hover:shadow-[0_24px_70px_rgba(15,23,42,0.10)] transition-all duration-500 overflow-hidden"
+              to="/services"
+              className="group block"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="flex items-center gap-5 mb-6">
+                <div className="relative w-[86px] h-[86px] shrink-0">
+                  <div className="absolute -top-3 -left-3 w-[78px] h-[78px] border border-[#B9C8D6]" />
 
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-8">
-                  <div
-                    className={`w-16 h-16 rounded-3xl flex items-center justify-center border transition-all duration-300 ${service.bg} ${service.color} group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600`}
-                  >
+                  <div className="relative z-10 w-[78px] h-[78px] bg-[#0A4F86] text-white flex items-center justify-center group-hover:bg-[#1E86C8] transition">
                     {React.cloneElement(service.icon, {
-                      className: "w-7 h-7 stroke-[2]",
+                      className: "w-9 h-9 stroke-[1.7]",
                     })}
                   </div>
-
-                  <div className="w-11 h-11 rounded-full bg-zinc-50 border border-zinc-100 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <ArrowUpRight className="w-5 h-5 text-zinc-500" />
-                  </div>
                 </div>
 
-                <div className="mb-7">
-                  <span className="inline-block text-[12px] font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full mb-4">
-                    Guide {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  <h3 className="text-xl lg:text-2xl font-bold text-zinc-900 mb-4 leading-snug group-hover:text-blue-700 transition-colors">
+                <div className="flex items-center gap-5 flex-1">
+                  <div className="w-9 h-[1px] bg-[#0A4F86]" />
+                  <h3 className="text-[#082F57] text-[15px] font-medium uppercase leading-snug group-hover:text-[#1E86C8] transition">
                     {service.title}
                   </h3>
-
-                  <p className="text-[15px] text-zinc-600 leading-relaxed">
-                    {service.shortDesc}
-                  </p>
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-zinc-100 flex items-center justify-between">
-                  <span className="text-[14px] font-bold text-zinc-900 group-hover:text-blue-700 transition-colors">
-                    Read guide
-                  </span>
-
-                  <span className="w-9 h-9 rounded-full bg-zinc-900 text-white flex items-center justify-center group-hover:bg-blue-700 transition-colors">
-                    <ChevronRight className="w-4 h-4" />
-                  </span>
                 </div>
               </div>
+
+              <p className="text-[#4B5563] text-[15px] leading-[1.9] max-w-[380px] font-medium">
+                {service.text}
+              </p>
             </Link>
           ))}
         </div>
 
-        <div className="mt-14 flex justify-center">
+        {/* Button */}
+        <div className="mt-16 text-center">
           <Link
-            to="/guides"
-            className="group inline-flex items-center gap-3 bg-zinc-900 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-blue-200"
+            to="/services"
+            className="inline-flex items-center justify-center bg-[#1E86C8] text-white px-9 py-4 text-[14px] font-medium uppercase tracking-[0.08em] hover:bg-[#0A4F86] transition"
           >
-            Browse All Email Guides
-            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            View All Services
           </Link>
         </div>
       </div>

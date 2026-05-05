@@ -1,186 +1,200 @@
-import { useState } from "react";
-import { Mail, ArrowRight } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  Mail,
+  MapPin,
+  ArrowRight,
+  ShieldCheck,
+  Facebook,
+  Instagram,
+} from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const location = useLocation();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [showToast, setShowToast] = useState(false);
-
-  const handleSubscribe = () => {
-    if (!email || !email.includes("@")) return;
-    setShowToast(true);
-    setEmail("");
-    setTimeout(() => setShowToast(false), 2500);
-  };
-
   const handleNavClick = (path) => {
-    if (path.startsWith("/#")) {
-      const targetId = path.replace("/#", "");
-      if (location.pathname === "/") {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        navigate("/", { state: { scrollTo: targetId } });
-      }
-    } else {
-      navigate(path);
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const quickLinks = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Guides", path: "/guides" },
-    { name: "Steps", path: "/steps" },
-    { name: "FAQ", path: "/faq" },
-    { name: "Contact", path: "/contact" },
+    { name: "Services", path: "/services" },
+    { name: "About Us", path: "/about-us" },
+    { name: "How It Works", path: "/how-it-works" },
+    { name: "Contact & Book Service", path: "/contact-book-service" },
   ];
 
   const policies = [
     { name: "Privacy Policy", path: "/privacy-policy" },
-    { name: "Terms & Conditions", path: "/terms-of-service" },
-    { name: "Cookie Policy", path: "/cookie-policy" },
+    { name: "Terms & Conditions", path: "/terms-and-conditions" },
+    { name: "Refund & Cancellation Policy", path: "/refund-cancellation-policy" },
     { name: "Disclaimer", path: "/disclaimer" },
+    { name: "Cookie Policy", path: "/cookie-policy" },
+  ];
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/CEComputerRepair/",
+      icon: <Facebook className="w-5 h-5" />,
+      color: "text-[#1877F2] hover:bg-[#1877F2] hover:text-white",
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/cecomputerrepairs/",
+      icon: <Instagram className="w-5 h-5" />,
+      color: "text-[#E4405F] hover:bg-[#E4405F] hover:text-white",
+    },
+    {
+      name: "MapQuest",
+      url: "https://www.mapquest.com/us/washington/ce-computer-repair-351129554",
+      icon: <img src="/mapquest.png" alt="MapQuest" className="w-6 h-6 object-contain" />,
+      color: "hover:bg-[#f7d100]",
+    },
+    {
+      name: "Yelp",
+      url: "https://www.yelp.com/biz/ce-computer-repair-seattle",
+      icon: <img src="/yelp-1.png" alt="Yelp" className="w-6 h-6 object-contain" />,
+      color: "hover:bg-[#d32323]",
+    },
   ];
 
   return (
-    <>
-      {showToast && (
-        <div className="fixed top-6 right-6 z-50 bg-white border border-slate-200 px-5 py-4 rounded-xl shadow-lg flex gap-3">
-          <Mail className="w-5 h-5 text-blue-600" />
+    <footer className="w-full bg-white border-t border-[#D7E9F7] font-['Poppins']">
+      <div className="max-w-[1900px] mx-auto px-6 lg:px-16 py-12">
+        <div className="bg-[#062238] px-7 md:px-10 lg:px-14 py-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-white">
           <div>
-            <p className="text-sm font-bold text-slate-900">Subscribed</p>
-            <p className="text-xs text-slate-500">You’ll receive email learning updates.</p>
+            <h2 className="text-[26px] md:text-[34px] font-medium mb-3">
+              Need help with your device?
+            </h2>
+            <p className="text-white/70 text-[15px] leading-7 max-w-[700px]">
+              Visit our location or book a service request directly. We'll review the issue and guide you through the next steps.
+            </p>
           </div>
-        </div>
-      )}
 
-      <footer className="w-full bg-white border-t border-slate-100">
-        {/* Compact Newsletter */}
-        <div className="w-full border-b border-slate-100">
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-16 py-8">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-6 bg-slate-50 border border-slate-100 rounded-3xl px-6 lg:px-10 py-6">
-              <div className="text-center lg:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold text-slate-950">
-                  Learn email in a simple way
-                </h2>
-                <p className="text-slate-600 text-sm md:text-[15px] mt-2">
-                  Get easy email guides, privacy tips, and useful learning updates.
+          <button
+            onClick={() => handleNavClick("/contact-book-service")}
+            className="bg-[#1E86C8] hover:bg-[#0A4F86] text-white px-8 py-4 font-medium uppercase tracking-[0.08em] text-[14px] flex items-center gap-2"
+          >
+            Book a Service
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      <div className="max-w-[1900px] mx-auto px-6 lg:px-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 lg:gap-14">
+          <div>
+            <button onClick={() => handleNavClick("/")} className="mb-5 block">
+              <img
+                src="/Logo.png"
+                alt="CE Computer Repairs"
+                className="h-[64px] w-auto object-contain"
+              />
+            </button>
+
+            <p className="text-[#6B7280] text-[15px] leading-7 mb-5">
+              C.E. Computer Repair provides hardware repair services with accurate diagnostics and practical repair solutions.
+            </p>
+
+            
+          </div>
+
+          <div>
+            <h3 className="text-[#082F57] font-medium mb-6 uppercase text-[14px] tracking-[0.14em]">
+              Website Pages
+            </h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => handleNavClick(link.path)}
+                    className="text-[#6B7280] hover:text-[#1E86C8] text-[15px] transition"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-[#082F57] font-medium mb-6 uppercase text-[14px] tracking-[0.14em]">
+              Contact
+            </h3>
+
+            <div className="space-y-5">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-[#1E86C8] shrink-0 mt-1" />
+                <p className="text-[#6B7280] text-[15px] leading-7">
+                  1818 E Yesler Wy Suite 101, Seattle, WA 98122, United States
                 </p>
               </div>
 
-              <div className="w-full lg:w-[460px] flex gap-2 bg-white border border-slate-200 rounded-2xl p-1.5">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 text-sm outline-none text-slate-800"
-                />
-
-                <button
-                  onClick={handleSubscribe}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl text-sm font-bold transition"
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-[#1E86C8] shrink-0 mt-1" />
+                <a
+                  href="mailto:contact@cecomputerrepairs.com"
+                  className="text-[#6B7280] hover:text-[#1E86C8] text-[15px] break-all"
                 >
-                  Subscribe
-                </button>
+                  contact@cecomputerrepairs.com
+                </a>
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* Main Footer */}
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16 py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8">
-            <div>
-              <button onClick={() => handleNavClick("/")} className="mb-4">
-                <img
-                  src="/logo.avif"
-                  alt="You Mail Engine"
-                  width="200"
-                  height="72"
-                  className="h-18 w-auto object-contain"
-                />
-              </button>
-
-              <p className="text-slate-600 text-[15px] leading-7 max-w-md">
-                You Mail Engine is an informational website that explains email topics,
-                features, privacy, and everyday usage in clear, simple language.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-slate-950 font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <button
-                      onClick={() => handleNavClick(link.path)}
-                      className="text-slate-600 hover:text-blue-600 text-sm transition"
-                    >
-                      {link.name}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-slate-950 font-bold mb-4">Information</h3>
-              <p className="text-slate-600 text-sm leading-7">
-                Our guides are written for learning only and help readers
-                understand email without technical confusion.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-slate-950 font-bold mb-4">Contact</h3>
-
-              <a
-                href="mailto:info@youmailengine.com"
-                className="flex items-center gap-2 text-slate-600 hover:text-blue-600 text-sm mb-5"
-              >
-                <Mail className="w-4 h-4 text-blue-600" />
-                info@youmailengine.com
-              </a>
-
-              <button
-                onClick={() => handleNavClick("/guides")}
-                className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all"
-              >
-                Explore Guides
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-slate-100">
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-16 py-5 flex flex-col lg:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-slate-500">
-              © {currentYear} You Mail Engine. All rights reserved.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-5">
-              {policies.map((policy) => (
-                <Link
-                  key={policy.name}
-                  to={policy.path}
-                  className="text-sm text-slate-500 hover:text-blue-600 transition"
+            <div className="flex flex-wrap gap-3 mt-7">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-11 h-11 border border-[#D7E9F7] flex items-center justify-center transition-all duration-300 ${item.color || "text-[#0A4F86] hover:bg-[#1E86C8] hover:text-white"}`}
+                  aria-label={item.name}
+                  title={item.name}
                 >
-                  {policy.name}
-                </Link>
+                  {item.icon}
+                </a>
               ))}
             </div>
           </div>
+
+          <div>
+            <h3 className="text-[#082F57] font-medium mb-6 uppercase text-[14px] tracking-[0.14em]">
+              Policies
+            </h3>
+            <ul className="space-y-3">
+              {policies.map((policy) => (
+                <li key={policy.name}>
+                  <Link
+                    to={policy.path}
+                    className="text-[#6B7280] hover:text-[#1E86C8] text-[15px] transition"
+                  >
+                    {policy.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </footer>
-    </>
+      </div>
+
+      <div className="border-t border-[#D7E9F7] py-6">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[#6B7280] text-[14px]">
+            © {currentYear} C.E. Computer Repair. All rights reserved.
+          </p>
+
+          <a
+            href="https://cecomputerrepairs.com/"
+            className="text-[#1E86C8] text-[14px] hover:text-[#0A4F86]"
+          >
+            cecomputerrepairs.com
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 };
 

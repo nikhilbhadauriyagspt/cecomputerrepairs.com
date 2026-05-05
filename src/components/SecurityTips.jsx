@@ -1,58 +1,58 @@
-import { ShieldCheck, Lock, Eye, AlertCircle, ChevronRight } from 'lucide-react';
+import { CheckCircle2 } from "lucide-react";
 
 const SecurityTips = () => {
-  const tips = [
-    {
-      icon: <Lock className="w-5 h-5" />,
-      title: "Use Two-Factor Authentication (2FA)",
-      desc: "Enable 2FA on every account. Even if someone gets your password, they can't get in without the second code from your phone."
-    },
-    {
-      icon: <Eye className="w-5 h-5" />,
-      title: "Check Your Recovery Info",
-      desc: "Ensure your recovery email and phone number are up to date. This is the only way to get back in if you forget your password."
-    },
-    {
-      icon: <AlertCircle className="w-5 h-5" />,
-      title: "Beware of Phishing",
-      desc: "Always check the sender's actual email address. Official providers will never ask for your password via an email link."
-    }
+  const points = [
+    "Careful hardware inspection before repair",
+    "Clear explanation of identified issues",
+    "Focus on component-level solutions",
+    "Use of compatible and quality parts",
+    "Organized repair process with guesswork",
   ];
 
   return (
-    <section className="py-24 bg-white w-full font-sans">
-      <div className="max-w-[1500px] mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+    <section className="w-full bg-[#F7F7F7] py-16 lg:py-24 font-['Poppins'] overflow-hidden">
+      <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+
+        <div className="grid grid-cols-1 lg:grid-cols-[520px_1fr] gap-14 lg:gap-20 items-start">
           
-          {/* Left: Headline */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-[12px] font-bold uppercase tracking-widest">
-              <ShieldCheck className="w-4 h-4" />
-              Security First
-            </div>
-            <h2 className="text-4xl md:text-5xl font-semibold text-zinc-900 tracking-tight leading-tight">
-              Protect Your <span className="text-blue-800">Email Identity.</span>
+          {/* Left Heading */}
+          <div>
+            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
+              Why Choose
+            </p>
+
+            <h2 className="text-[#082F57] text-[32px] md:text-[42px] lg:text-[52px] font-medium leading-tight uppercase mb-6">
+              Why Choose C.E. Computer Repair
             </h2>
-            <p className="text-zinc-600 text-[18px] leading-relaxed">
-              Email is the key to your digital life. Use these professional tips to ensure your accounts stay locked and secure against unauthorized access.
+
+            <div className="w-12 h-[3px] bg-[#1E86C8] mb-7" />
+
+            <p className="text-[#4B5563] text-[16px] leading-[1.9] max-w-[500px] font-medium">
+              We aim to provide a straight forward repair experience without unnecessary complications.
             </p>
           </div>
 
-          {/* Right: Tips List */}
-          <div className="lg:col-span-7 grid md:grid-cols-1 gap-6">
-            {tips.map((tip, index) => (
-              <div 
-                key={index} 
-                className="group p-8 rounded-[2rem] bg-zinc-50 border border-zinc-100 hover:bg-white hover:border-blue-100 hover:shadow-xl transition-all duration-300 flex items-start gap-6"
+          {/* Right Points */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+            {points.map((point, index) => (
+              <div
+                key={index}
+                className="relative border-b border-[#D7E9F7] pb-8"
               >
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-blue-800 shadow-sm group-hover:bg-blue-800 group-hover:text-white transition-all">
-                  {tip.icon}
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-[18px] font-bold text-zinc-900 group-hover:text-blue-800 transition-colors">{tip.title}</h3>
-                  <p className="text-[14.5px] text-zinc-600 leading-relaxed font-normal">
-                    {tip.desc}
-                  </p>
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-[#0A4F86] text-white flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-6 h-6" />
+                  </div>
+
+                  <div>
+                    <p className="text-[#1E86C8] text-[12px] font-medium uppercase tracking-[0.18em] mb-3">
+                      Point {String(index + 1).padStart(2, "0")}
+                    </p>
+
+                    <h3 className="text-[#082F57] text-[20px] md:text-[20px] font-medium leading-[1.45]">
+                      {point}
+                    </h3>
+                  </div>
                 </div>
               </div>
             ))}

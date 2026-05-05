@@ -1,14 +1,13 @@
 import {
-  BookOpen,
-  Shield,
-  Lightbulb,
-  Zap,
-  Mail,
+  ShieldCheck,
+  Laptop,
+  Cpu,
+  Search,
   CheckCircle2,
-  Users,
-  Target,
-  Rocket,
   ArrowRight,
+  MapPin,
+  Mail,
+  Wrench,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import SEO from "../components/SEO";
@@ -16,223 +15,203 @@ import SEO from "../components/SEO";
 const About = () => {
   const navigate = useNavigate();
 
-  const features = [
+  const focusAreas = [
+    "Screen replacement and display repair",
+    "Hard drive repair and storage-related issues",
+    "Motherboard inspection and repair",
+    "Battery and charging-related problems",
+    "Keyboard and input device replacement",
+    "Cooling system and fan repair",
+    "Thermal paste replacement for improved performance",
+  ];
+
+  const approachSteps = [
     {
-      icon: BookOpen,
-      title: "Easy Email Guides",
-      desc: "Simple articles that explain email basics, settings, inbox features, and common terms in a clear way.",
+      title: "1. Device Evaluation",
+      desc: "We begin with a detailed inspection to understand the issue affecting the system.",
     },
     {
-      icon: Shield,
-      title: "Privacy Awareness",
-      desc: "Helpful information about safe email habits, account protection, spam awareness, and privacy-friendly usage.",
+      title: "2. Diagnosis",
+      desc: "The problem is analyzed to determine whether repair or replacement is required.",
     },
     {
-      icon: Lightbulb,
-      title: "Practical Learning",
-      desc: "Real examples and easy explanations to help readers understand how email works in daily life.",
+      title: "3. Clear Explanation",
+      desc: "We explain the issue in simple terms so you can understand the condition of your device.",
     },
     {
-      icon: Zap,
-      title: "Quick Understanding",
-      desc: "Short and focused content made for readers who want clear answers without confusing technical language.",
+      title: "4. Repair Execution",
+      desc: "Repairs are performed based on the diagnosis using compatible parts and appropriate methods.",
+    },
+    {
+      title: "5. Testing",
+      desc: "After repair, the device is tested to ensure proper functionality.",
     },
   ];
 
-  const values = [
-    {
-      icon: Target,
-      title: "Our Mission",
-      desc: "To make email topics easier to understand through clear and simple educational content.",
-    },
-    {
-      icon: Users,
-      title: "For Everyone",
-      desc: "Our guides are written for students, professionals, beginners, and everyday email users.",
-    },
-    {
-      icon: Rocket,
-      title: "Always Improving",
-      desc: "We keep improving our content so readers can learn email topics in a more useful way.",
-    },
+  const differencePoints = [
+    "Focus on hardware-level repair rather than temporary solutions",
+    "Clear and structured diagnostic process",
+    "Repair recommendations based on actual device condition",
+    "Attention to detail during inspection and repair",
+    "Practical solutions aimed at extending device usability",
+  ];
+
+  const serviceNotes = [
+    "Repairs depend on the condition of the device and its components",
+    "Some hardware issues may require part replacement instead of repair",
+    "Data safety depends on the condition of the storage device",
+    "Repair time may vary depending on the complexity of the issue",
   ];
 
   return (
-    <main className="bg-white pt-24 pb-20">
-      <SEO 
-        title="About" 
-        description="Learn about You Mail Engine and our mission to provide clear, human-friendly email information for everyday users."
+    <main className="w-full bg-white font-['Poppins']">
+      <SEO
+        title="About C.E. Computer Repair | Trusted Device Repair Services"
+        description="Learn about C.E. Computer Repair, offering trusted laptop and computer repair services with expert diagnostics, quality parts, and reliable solutions."
       />
-      {/* Heading */}
-      <section className="px-6 lg:px-10">
-        <div className="max-w-[1200px] mx-auto text-center mb-14">
-          <div className="flex justify-center mb-4">
-            <Mail className="w-8 h-8 text-blue-700" />
-          </div>
 
-          <p className="font-serif italic text-blue-700 text-lg mb-2">
-            Learn with clarity
-          </p>
-
-          <h1 className="text-3xl md:text-4xl tracking-[0.1em] font-serif text-zinc-950">
-            About <span className="text-blue-700 italic">You Mail Engine</span>
+      {/* HERO */}
+      <section className="w-full bg-[#062238] py-20 lg:py-28">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h1 className="text-white text-[30px] md:text-[40px] lg:text-[50px] font-medium leading-tight">
+            About C.E. Computer Repair
           </h1>
+        </div>
+      </section>
 
-          <p className="mt-6 max-w-2xl mx-auto text-zinc-600 leading-8">
-            You Mail Engine is an informational website made to explain email topics in
-            a simple, human, and easy-to-understand way.
+      {/* INTRO */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 space-y-6">
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+            C.E. Computer Repair is a local service provider focused on computer repair and laptop repair services with an emphasis on hardware diagnostics and practical solutions. We work with everyday devices that require careful inspection, accurate issue identification, and reliable repair methods.
+          </p>
+
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+            Our approach is based on understanding the actual condition of each device and providing repair options that are appropriate to the problem. Whether it is a damaged screen, a failing storage drive, or an internal component issue, we aim to handle each case with attention to detail and clarity.
           </p>
         </div>
       </section>
 
-      {/* Blog Style Layout */}
-      <section className="px-6 lg:px-10">
-        <div className="max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-12">
-          {/* Left Big Post */}
-          <div>
-            <div className="border border-dashed border-zinc-300 p-3 mb-6">
-              <div className="bg-blue-50 min-h-[310px] flex items-center justify-center">
-                <div className="text-center px-8">
-                  <Mail className="w-20 h-20 text-blue-700 mx-auto mb-5" />
-                  <h2 className="text-3xl md:text-4xl font-serif text-zinc-950 leading-tight">
-                    Making email simple for everyone.
-                  </h2>
-                </div>
+      {/* OUR FOCUS */}
+      <section className="py-16 lg:py-24 bg-[#F7F7F7]">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium mb-10">
+            Our Focus
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            {focusAreas.map((item, i) => (
+              <div key={i} className="flex items-start gap-3 bg-white border border-[#D7E9F7] p-5">
+                <CheckCircle2 className="w-5 h-5 text-[#1E86C8]" />
+                <p className="text-[#082F57] text-[15px] font-medium">{item}</p>
               </div>
-            </div>
-
-            <h2 className="text-xl  font-serif  text-zinc-950 mb-5">
-              Our Story
-            </h2>
-
-            <p className="text-zinc-700 leading-8 mb-8">
-              Email is part of everyday digital life, but many people still find
-              its settings, features, and safety terms confusing. You Mail Engine was
-              created to make these topics easier to understand through simple
-              guides, clear explanations, and practical learning content.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-6 text-sm text-zinc-500 mb-7">
-              <span className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-blue-700" />
-                Informational Guides
-              </span>
-
-              <span className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-blue-700" />
-                Privacy Awareness
-              </span>
-
-              <span className="flex items-center gap-2">
-                <Users className="w-4 h-4 text-blue-700" />
-                Beginner Friendly
-              </span>
-            </div>
-
-            <button
-              onClick={() => navigate("/guides")}
-              className="inline-flex items-center gap-2 text-blue-700 font-black uppercase text-sm tracking-wide hover:gap-3 transition-all"
-            >
-              Explore Guides
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            ))}
           </div>
 
-          {/* Right Small Posts */}
-          <div className="space-y-10">
-            {features.map((item, index) => {
-              const Icon = item.icon;
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+            Our work is centered on identifying the root cause of the issue rather than applying temporary fixes.
+          </p>
+        </div>
+      </section>
 
-              return (
-                <div
-                  key={index}
-                  className="grid grid-cols-[150px_1fr] gap-7 items-start"
-                >
-                  <div className="border border-dashed border-zinc-300 p-3">
-                    <div className="h-[125px] bg-zinc-50 flex items-center justify-center">
-                      <Icon className="w-12 h-12 text-blue-700" />
-                    </div>
-                  </div>
+      {/* APPROACH */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium mb-12">
+            Our Approach to Repair
+          </h2>
 
-                  <div>
-                    <h3 className="text-[16px] font-black font-serif  text-zinc-950 mb-3">
-                      {item.title}
-                    </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {approachSteps.map((step, i) => (
+              <div key={i} className="border border-[#D7E9F7] p-6 bg-[#F4F8FC]">
+                <h4 className="text-[#082F57] font-medium mb-3">{step.title}</h4>
+                <p className="text-[#6B7280] text-[15px]">{step.desc}</p>
+              </div>
+            ))}
+          </div>
 
-                    <p className="text-[14px] text-zinc-700 leading-7 mb-4">
-                      {item.desc}
-                    </p>
+          <p className="text-[#6B7280] mt-8 text-[16px] leading-[1.9]">
+            This process helps maintain consistency and avoids unnecessary work on the device.
+          </p>
+        </div>
+      </section>
 
-                    <button 
-                      onClick={() => navigate("/guides")}
-                    className="inline-flex items-center gap-2 text-blue-700 text-xs font-black uppercase tracking-wide">
-                      Read More
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+      {/* DIFFERENCE */}
+      <section className="py-16 lg:py-24 bg-[#F7F7F7]">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium mb-10">
+            What Makes Our Service Different
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {differencePoints.map((point, i) => (
+              <div key={i} className="flex gap-3">
+                <CheckCircle2 className="text-[#1E86C8]" />
+                <p className="text-[#082F57]">{point}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[#6B7280] mt-8 leading-[1.9]">
+            We aim to keep the repair process straightforward and easy to understand.
+          </p>
+        </div>
+      </section>
+
+      {/* SERVICE NOTE */}
+      <section className="py-16 lg:py-24 bg-[#062238] text-white">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h2 className="text-[30px] md:text-[40px] font-medium mb-10">
+            Important Service Note
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {serviceNotes.map((note, i) => (
+              <div key={i} className="border border-white/10 p-5">
+                <p className="text-white/80 text-[15px]">{note}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="px-6 lg:px-10 mt-24">
-        <div className="max-w-[1800px] mx-auto">
-          <div className="text-center mb-12">
-            <p className="font-serif italic text-blue-700 text-lg mb-2">
-              What we believe
-            </p>
-            <h2 className="text-2xl md:text-4xl font-serif tracking-[0.15em]  text-zinc-950">
-              Our Core Values
-            </h2>
-          </div>
+      {/* CONTACT */}
+      <section className="py-16 lg:py-24 bg-[#F7F7F7]">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          <h3 className="text-[#082F57] text-[28px] font-medium mb-6">
+            Location & Contact
+          </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
+          <div className="space-y-4">
+            <div className="flex gap-3">
+              <MapPin className="text-[#1E86C8]" />
+              <p>1818 E Yesler Way, Suite 101 Seattle, WA 98122, United States</p>
+            </div>
 
-              return (
-                <div
-                  key={index}
-                  className="border border-dashed border-zinc-300 p-8 text-center"
-                >
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-blue-50 flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-blue-700" />
-                  </div>
-
-                  <h3 className="text-lg font-black font-serif  text-zinc-950 mb-4">
-                    {value.title}
-                  </h3>
-
-                  <p className="text-zinc-600 text-[15px] leading-7">
-                    {value.desc}
-                  </p>
-                </div>
-              );
-            })}
+            <div className="flex gap-3">
+              <Mail className="text-[#1E86C8]" />
+              <a href="mailto:contact@cecomputerrepairs.com" className="hover:text-[#1E86C8] transition-colors text-inherit">contact@cecomputerrepairs.com</a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-6 lg:px-10 mt-20">
-        <div className="max-w-[1000px] mx-auto border border-dashed border-zinc-300 p-10 text-center">
-          <h2 className="text-2xl md:text-4xl font-serif text-zinc-950 mb-5">
-            Learn email at your own pace.
+      <section className="py-16 lg:py-24 text-center">
+        <div className="max-w-[900px] mx-auto px-6">
+          <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium mb-6">
+            Practical & Reliable Repair Services
           </h2>
 
-          <p className="text-zinc-600 leading-8 max-w-2xl mx-auto mb-8">
-            Browse our email guides and understand useful topics like inbox
-            basics, privacy habits, safe usage, and common email features.
+          <p className="text-[#6B7280] mb-8 leading-[1.9]">
+            C.E. Computer Repair is built around a simple idea — provide clear, practical, and reliable computer repair services without unnecessary complexity. Every device is evaluated individually, and every repair is carried out with attention to its specific condition.
           </p>
 
           <button
-            onClick={() => navigate("/guides")}
-            className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 font-bold uppercase text-sm tracking-wide transition"
+            onClick={() => navigate("/contact-book-service")}
+            className="bg-[#1E86C8] text-white px-8 py-4"
           >
-            Explore All Guides
+            Book Your Repair Today
           </button>
         </div>
       </section>
