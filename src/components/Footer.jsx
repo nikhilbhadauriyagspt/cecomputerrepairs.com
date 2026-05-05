@@ -186,12 +186,7 @@ const Footer = () => {
             © {currentYear} C.E. Computer Repair. All rights reserved.
           </p>
 
-          <a
-            href="https://cecomputerrepairs.com/"
-            className="text-[#1E86C8] text-[14px] hover:text-[#0A4F86]"
-          >
-            cecomputerrepairs.com
-          </a>
+       
         </div>
       </div>
     </footer>

@@ -49,7 +49,7 @@ const SecurityTips = () => {
                       Point {String(index + 1).padStart(2, "0")}
                     </p>
 
-                    <h3 className="text-[#082F57] text-[20px] md:text-[20px] font-medium leading-[1.45]">
+                    <h3 className="text-[#082F57] text-[10px] md:text-[15px] font-medium leading-[1.45]">
                       {point}
                     </h3>
                   </div>

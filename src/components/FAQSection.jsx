@@ -42,8 +42,8 @@ const FAQSection = () => {
             <div className="absolute -top-20 -right-20 w-[220px] h-[220px] bg-[#1E86C8]/25 rounded-full blur-3xl" />
             <div className="absolute -bottom-20 -left-20 w-[220px] h-[220px] bg-[#0A4F86]/40 rounded-full blur-3xl" />
 
-            <div className="relative left-50 max-w-[400px] z-10">
-              <p className="text-[#1E86C8] text-[11px] ml-25 font-medium uppercase tracking-[0.18em] mb-4">
+            <div className="relative  z-10">
+              <p className="text-[#1E86C8] text-[11px]  font-medium uppercase tracking-[0.18em] mb-4">
                 About Our Approach
               </p>
 
