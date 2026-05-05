@@ -141,29 +141,19 @@ const Steps = () => {
           </h1>
         </div>
       </section>
-
-      <section className="w-full bg-white py-16 lg:py-24">
-        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-[520px_1fr] gap-12 lg:gap-20">
-          <div>
-            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-              Intro Section
-            </p>
-            <h2 className="text-[#082F57] text-[30px] md:text-[40px] lg:text-[48px] font-medium leading-tight">
-              Our Computer Repair Process
-            </h2>
-            <div className="w-12 h-[3px] bg-[#1E86C8] mt-6" />
-          </div>
-
-          <div className="space-y-6">
-            <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+      {/* INTRO */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 space-y-6">
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
               At C.E. Computer Repair, every device goes through a structured and careful process designed to identify hardware issues accurately and apply appropriate repair solutions. Our goal is to make computer repair and laptop repair services easy to understand, with clear steps from initial inspection to final testing.
-            </p>
-            <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+          </p>
+
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
               This process helps ensure that each device is handled based on its actual condition, without unnecessary procedures or guesswork.
-            </p>
-          </div>
+          </p>
         </div>
       </section>
+      
 
       <section className="w-full bg-[#F7F7F7] py-16 lg:py-24">
         <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
@@ -225,9 +215,7 @@ const Steps = () => {
           </div>
 
           <div className="bg-[#062238] p-8">
-            <h2 className="text-white text-[30px] md:text-[40px] font-medium mb-8">
-              Important Notes
-            </h2>
+           
             <div className="space-y-4">
               {notes.map((item, index) => (
                 <div key={index} className="flex items-start gap-3 border border-white/10 p-4">

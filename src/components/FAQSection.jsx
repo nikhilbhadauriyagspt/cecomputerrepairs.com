@@ -10,7 +10,6 @@ const FAQSection = () => {
     "Battery not charging or draining quickly",
     "Keyboard or input issues",
     "Power-related problems",
-    "Shape",
   ];
 
   return (

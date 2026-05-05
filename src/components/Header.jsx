@@ -41,7 +41,7 @@ const Header = () => {
       }`}
     >
       <div className="max-w-[1900px] mx-auto px-6 lg:px-10">
-        <div className="h-[92px] flex items-center justify-between">
+        <div className="h-[92px] flex items-center justify-between gap-10">
           <button
             onClick={() => handleNavClick("/")}
             className="flex items-center shrink-0"
@@ -53,33 +53,35 @@ const Header = () => {
             />
           </button>
 
-          <nav className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => handleNavClick(link.path)}
-                className={`text-[14px] font-medium uppercase tracking-[0.08em] transition ${
-                  isActive(link.path)
-                    ? "text-[#0A4F86]"
-                    : "text-[#111827] hover:text-[#1E86C8]"
-                }`}
-              >
-                {link.name}
-              </button>
-            ))}
-          </nav>
+          <div className="hidden lg:flex items-center justify-end flex-1 gap-12">
+            <nav className="flex items-center gap-10">
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => handleNavClick(link.path)}
+                  className={`text-[14px] font-medium uppercase tracking-[0.08em] transition ${
+                    isActive(link.path)
+                      ? "text-[#0A4F86]"
+                      : "text-[#111827] hover:text-[#1E86C8]"
+                  }`}
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
 
-          <button
-            onClick={() => handleNavClick("/contact-book-service")}
-            className="hidden lg:inline-flex items-center gap-2 bg-[#0A4F86] text-white px-8 py-4 rounded-[9px] text-[14px] font-medium uppercase tracking-[0.04em] hover:bg-[#1E86C8] transition"
-          >
-            Book a Service
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
+            <button
+              onClick={() => handleNavClick("/contact-book-service")}
+              className="inline-flex items-center gap-2 bg-[#0A4F86] text-white px-8 py-4 rounded-[9px] text-[14px] font-medium uppercase tracking-[0.04em] hover:bg-[#1E86C8] transition"
+            >
+              Book a Service
+              <ArrowUpRight className="w-4 h-4" />
+            </button>
+          </div>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden w-11 h-11 rounded-lg bg-[#0A4F86] text-white flex items-center justify-center"
+            className="lg:hidden w-11 h-11 rounded-lg bg-[#0A4F86] text-white flex items-center justify-center shrink-0"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X /> : <Menu />}

@@ -140,35 +140,25 @@ const Services = () => {
           </h1>
         </div>
       </section>
-
-      {/* INTRO */}
-      <section className="w-full bg-white py-14 lg:py-20">
-        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-[480px_1fr] gap-10 lg:gap-16">
-          <div>
-            <h2 className="text-[#082F57] text-[30px] md:text-[38px] font-medium leading-tight">
-              Computer & Laptop Hardware Repair Services
-            </h2>
-            <div className="w-12 h-[3px] bg-[#1E86C8] mt-6" />
-          </div>
-
-          <div className="space-y-5">
-            <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+    {/* INTRO */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 space-y-6">
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
               At C.E. Computer Repair, we provide structured and practical computer repair and laptop repair services focused on hardware-related issues. Whether your device is experiencing physical damage, internal component failure, or performance-related problems, our approach begins with careful diagnosis followed by appropriate repair solutions.
-            </p>
-            <p className="text-[#6B7280] text-[16px] leading-[1.9]">
+          </p>
+
+          <p className="text-[#6B7280] text-[16px] leading-[1.9]">
               We work on a wide range of laptop and desktop issues, including display problems, storage failures, overheating systems, and component replacements. Each service is carried out based on the actual condition of the device, without unnecessary procedures.
-            </p>
-          </div>
+          </p>
         </div>
       </section>
+     
 
       {/* CORE SERVICES */}
       <section className="w-full bg-[#F7F7F7] py-14 lg:py-20">
         <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
           <div className="mb-12">
-            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-              Our Core Repair Services
-            </p>
+           
             <h2 className="text-[#082F57] text-[30px] md:text-[42px] font-medium leading-tight">
               Our Core Repair Services
             </h2>
@@ -218,9 +208,7 @@ const Services = () => {
       <section className="w-full bg-white py-14 lg:py-20">
         <div className="max-w-[1900px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-[480px_1fr] gap-10 lg:gap-16">
           <div>
-            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-              What Our Services Focus On
-            </p>
+          
             <h2 className="text-[#082F57] text-[30px] md:text-[42px] font-medium leading-tight">
               What Our Services Focus On
             </h2>
@@ -300,15 +288,8 @@ const Services = () => {
 
       {/* NOTE */}
       <section className="w-full bg-[#062238] py-14 lg:py-20">
-        <div className="max-w-[1900px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-[480px_1fr] gap-10 lg:gap-16">
-          <div>
-            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-              Important Service Note
-            </p>
-            <h2 className="text-white text-[30px] md:text-[42px] font-medium leading-tight">
-              Important Service Note
-            </h2>
-          </div>
+        <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
+          
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {serviceNotes.map((note, index) => (
@@ -328,9 +309,7 @@ const Services = () => {
           <div className="border border-[#D7E9F7] bg-[#F4F8FC] p-7 md:p-10 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-8 items-center">
               <div>
-                <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-                  CTA Section
-                </p>
+                
                 <h2 className="text-[#082F57] text-[30px] md:text-[40px] font-medium leading-tight mb-5">
                   Need help with your device?
                 </h2>

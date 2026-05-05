@@ -29,9 +29,7 @@ const AboutSection = () => {
 
           {/* Left Content */}
           <div>
-            <p className="text-[#0A4F86] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-              Intro Section
-            </p>
+           
 
             <h2 className="text-[#111827] text-[34px] md:text-[44px] font-medium leading-tight uppercase mb-6">
               Practical Repair <br /> For Everyday Devices

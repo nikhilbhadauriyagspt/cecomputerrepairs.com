@@ -10,7 +10,7 @@ const CTASection = () => {
             
             <div>
               <p className="text-[#1E86C8] text-[12px] font-medium uppercase tracking-[0.22em] mb-4">
-                Contact & Service CTA
+                Contact & Service
               </p>
 
               <h3 className="text-[#082F57] text-[30px] md:text-[42px] font-medium leading-tight mb-5">
@@ -43,9 +43,7 @@ const CTASection = () => {
             </div>
 
             <div className="bg-white border border-[#D7E9F7] p-7 md:p-8">
-              <p className="text-[#1E86C8] text-[12px] font-medium uppercase tracking-[0.22em] mb-6">
-                Trust Note
-              </p>
+             
 
               <div className="space-y-5">
                 {[

@@ -17,9 +17,7 @@ const SecurityTips = () => {
           
           {/* Left Heading */}
           <div>
-            <p className="text-[#1E86C8] text-[13px] font-medium uppercase tracking-[0.22em] mb-4">
-              Why Choose
-            </p>
+           
 
             <h2 className="text-[#082F57] text-[32px] md:text-[42px] lg:text-[52px] font-medium leading-tight uppercase mb-6">
               Why Choose C.E. Computer Repair

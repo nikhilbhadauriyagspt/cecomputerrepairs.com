@@ -161,9 +161,7 @@ const About = () => {
       {/* SERVICE NOTE */}
       <section className="py-16 lg:py-24 bg-[#062238] text-white">
         <div className="max-w-[1900px] mx-auto px-6 lg:px-16">
-          <h2 className="text-[30px] md:text-[40px] font-medium mb-10">
-            Important Service Note
-          </h2>
+          
 
           <div className="grid md:grid-cols-2 gap-5">
             {serviceNotes.map((note, i) => (
